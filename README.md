@@ -2,29 +2,34 @@
 
 v1.0 (3 Nov 2023), by Martin Knöfel (martin.knoefel@gmail.com)
 
-* Added \cvsetting to enable quick content editing, adds easy content setting command to include elements
-* Many commands now support selective highlighting.
-    e.g.\cvsetting[\cvtag{Tag}]{\UserTwo}{\cvtag[1]{Tag}}
-    renders a highlighted Tag if \UserTwo = 1,
-    or a regular Tag if \UserTwo = 9 (or another number)
-    \cvsetting[\myStuff] (only \cvsetting{2..9}) \myStuff id the output
-used with
-\cvitems[3]{}{}{}{}{}
-	\cventry[9]{}{}{}{}
-	\cvevent[]{}{}{}{}
-	\cvachievement[]{}{}{}
-	\cvskill[]{}{}
-	\cvtag[]{}
-    \cvref[]{}{}{}{}{}{}{}{}
-If [9] the option is deactivated
-If [1..5] (only \cvitems) the 1..5th item is highlighted
-If [1] Text is highlighted (format depends on user settings)
-    you can just use the commands without []
+* Added cv setting to enable quick content selection to include elements
+  *  `\newcommand{\cvsetting}[3][]{\ifnum #2=1 #3 \else #1\fi}`
+  e.g.
+  *`\cvsetting[\myOtherStuff]{1}{\myStuff}`
+  If ]{1}{ the output is `\myStuff` 
+  else `\myOtherStuff` is the output if e.g. ]{9}{.
+  * With just `\cvsetting{9}{\myStuff}` the output is empty.
+* Many commands now support selective highlighting thanks to cvsetting.
+  * e.g.`\cvsetting[\cvtag{Tag}]{\UserTwo}{\cvtag[1]{Tag}}`
+    renders a highlighted Tag if `\UserTwo` = 1,
+    or a regular Tag if `\UserTwo` = 9 (or another number)
+  * used with
+    \cvitems[3]{}{}{}{}{},
+	\cventry[9]{}{}{}{},
+	\cvevent[1]{}{}{}{},
+	\cvachievement[]{}{}{},
+	\cvskill[]{}{},
+	\cvtag[]{},
+    \cvref[]{}{}{}{}{}{}{}{}`
+    *If [9] the option is deactivated
+    *If [1..5] (only \cvitems) the 1..5th item is highlighted
+    *If [1] Text is highlighted (format depends on user settings)
+  * you can just use the commands without []
 * Added application letter option with own header, footer and geometry
-* Added watermark to headers and footers
-  using `\RequirePackage{transparent}`
-* Added warning suppression for item indentation (see [!indent] in playacv.cls)
-  using `\RequirePackage{silence}`
+* Added watermark to headers and footers using
+  `\RequirePackage{transparent}`
+* Added warning suppression for item indentation (see [!indent] in playacv.cls) using
+  `\RequirePackage{silence}`
 * preferential two colors sample with RuleColor for header/heading rules and SymbolColor for accentuated elements
 * improved file structure with options to hide or highlight any element keeping everything else intact
 
@@ -49,24 +54,16 @@ Leonardo was talking about a [résumé of Marissa Mayer that Business Insider pu
 I _knew_ I had to do something about it. And so AltaCV was born.
 
 ## Samples
-
-This is how the re-created résumé looks like ([view/open on Overleaf](https://www.overleaf.com/latex/examples/recreating-business-insiders-cv-of-marissa-mayer-using-altacv/gtqfpbwncfvp)):
-
-<img src="mmayer.png" alt="Marissa Mayer's résumé, re-created with AltaCV" width="600px">
-
-Though if you're creating your own CV/résumé, you'd probably prefer using the basic template ([view/open on Overleaf](https://www.overleaf.com/latex/templates/altacv-template/trgqjpwnmtgv)):
-
-<img src="sample.png" alt="sample barebones AltaCV template" width="600px">
-
+In sample.tex you can see the full display of options, template.tex provides a standard cv template as you know them.
 
 ## Requirements and Compilation
 
 * pdflatex + biber + pdflatex
-* AltaCV uses [`fontawesome5`](http://www.ctan.org/pkg/fontawesome5).
+* PlayaCV uses [`fontawesome5`](http://www.ctan.org/pkg/fontawesome5).
 * Use the `normalphoto` option to get normal (i.e. non-circular) photos.
-* As of v1.2 you can add multiple photos on the left or right: `\photoL{2cm}{logo1}` and `\photoR{2.5cm}{logo2,photo}`. (`\photo` will work like `\photoR`.) Separate your image filenames with commas _without_ spaces.
+* Separate your image filenames with commas _without_ spaces if given the option.
 * Use the `ragged2e` option to activate hyphenations while keeping text left-justified; line endings will thus be less jagged and more aesthetically pleasing.
-* As of v1.3 the `withhyper` document class option will make the "personal info" fields into clickable hyperlinks (where it makes sense). See below for more details.
+* As of altacv v1.3 the `withhyper` document class option will make the "personal info" fields into clickable hyperlinks (where it makes sense). See below for more details.
 * Can now be compiled with pdflatex, XeLaTeX and LuaLaTeX!
   * Note that to compile with XeLaTeX, you should use a command line as follows, per [the `pdfx` documentation](http://mirrors.ctan.org/macros/latex/contrib/pdfx/pdfx.pdf): `xelatex -shell-escape -output-driver="xdvipdfmx -z 0" sample.tex`
 * The samples here use the [Lato](http://www.latofonts.com/lato-free-fonts/) and [Roboto Slab fonts](https://github.com/googlefonts/robotoslab). Feel free to use a different typeface package instead—often a different typeface will change the entire CV's feel.
@@ -202,4 +199,3 @@ as well as doing a bit of arithmetic when you're making the header to get it ful
 \makecvheader
 \end{adjustwidth}
 ```
-
