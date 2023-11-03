@@ -30,8 +30,32 @@ v1.0 (3 Nov 2023), by Martin Knöfel (martin.knoefel@gmail.com)
   `\RequirePackage{transparent}`
 * Added warning suppression for item indentation (see [!indent] in playacv.cls) using
   `\RequirePackage{silence}`
-* preferential two colors sample with RuleColor for header/heading rules and SymbolColor for accentuated elements
-* improved file structure with options to hide or highlight any element keeping everything else intact
+* Preferential two colors sample with RuleColor for header/heading rules and SymbolColor for accentuated elements
+* Improved file structure with options to hide or highlight any element keeping everything else intact
+  
+## How to use
+1) Go to cv.tex and setup all your default cv information. Be careful about special characters. 
+2) (recommended to) copy the template.tex contect into a file with a new name e.g. name.tex.
+3) Compile and enjoy!
+4) Go through your options in cv.tex to setup the chapters and default display options
+5) From now on, you're set: just copy name.tex into name2.tex, change/highlight something and there is your new unique cv
+
+## Samples
+In sample.tex you can see the full display of options, template.tex provides a standard cv template as you know them.
+
+## Requirements and Compilation
+
+* pdflatex + biber + pdflatex
+* PlayaCV uses [`fontawesome5`](http://www.ctan.org/pkg/fontawesome5).
+* Use the `normalphoto` option to get normal (i.e. non-circular) photos.
+* Separate your image filenames with commas _without_ spaces if given the option.
+* Use the `ragged2e` option to activate hyphenations while keeping text left-justified; line endings will thus be less jagged and more aesthetically pleasing.
+* As of altacv v1.3 the `withhyper` document class option will make the "personal info" fields into clickable hyperlinks (where it makes sense). See below for more details.
+* Can now be compiled with pdflatex, XeLaTeX and LuaLaTeX!
+  * Note that to compile with XeLaTeX, you should use a command line as follows, per [the `pdfx` documentation](http://mirrors.ctan.org/macros/latex/contrib/pdfx/pdfx.pdf): `xelatex -shell-escape -output-driver="xdvipdfmx -z 0" sample.tex`
+* The samples here use the [Lato](http://www.latofonts.com/lato-free-fonts/) and [Roboto Slab fonts](https://github.com/googlefonts/robotoslab). Feel free to use a different typeface package instead—often a different typeface will change the entire CV's feel.
+
+based on:
 
 # AltaCV, yet another LaTeX CV/Résumé class
 
@@ -53,22 +77,6 @@ It all started with this:
 Leonardo was talking about a [résumé of Marissa Mayer that Business Insider put together](http://www.businessinsider.my/a-sample-resume-for-marissa-mayer-2016-7/) using [enhancv.com](https://enhancv.com).
 I _knew_ I had to do something about it. And so AltaCV was born.
 
-## Samples
-In sample.tex you can see the full display of options, template.tex provides a standard cv template as you know them.
-
-## Requirements and Compilation
-
-* pdflatex + biber + pdflatex
-* PlayaCV uses [`fontawesome5`](http://www.ctan.org/pkg/fontawesome5).
-* Use the `normalphoto` option to get normal (i.e. non-circular) photos.
-* Separate your image filenames with commas _without_ spaces if given the option.
-* Use the `ragged2e` option to activate hyphenations while keeping text left-justified; line endings will thus be less jagged and more aesthetically pleasing.
-* As of altacv v1.3 the `withhyper` document class option will make the "personal info" fields into clickable hyperlinks (where it makes sense). See below for more details.
-* Can now be compiled with pdflatex, XeLaTeX and LuaLaTeX!
-  * Note that to compile with XeLaTeX, you should use a command line as follows, per [the `pdfx` documentation](http://mirrors.ctan.org/macros/latex/contrib/pdfx/pdfx.pdf): `xelatex -shell-escape -output-driver="xdvipdfmx -z 0" sample.tex`
-* The samples here use the [Lato](http://www.latofonts.com/lato-free-fonts/) and [Roboto Slab fonts](https://github.com/googlefonts/robotoslab). Feel free to use a different typeface package instead—often a different typeface will change the entire CV's feel.
-
-## `sample.tex` [WAS `sample-alt.tex` 2 FEBRUARY 2020, DEFAULT SINCE 10 MAY 2020] ##
 Many users have overlooked the optional argument of `\cvsection` to insert the right sidebar contents, and often confused that the right sidebar doesn't automatically break across pages. This new layout uses the `paracol` package for typesetting the left and right columns that _can_ break across pages. It also makes changing the column widths easier:
 
 ```latex
