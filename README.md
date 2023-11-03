@@ -30,6 +30,8 @@ v1.0 (3 Nov 2023), by Martin Knöfel (martin.knoefel@gmail.com)
   `\RequirePackage{transparent}`
 * Added warning suppression for item indentation (see [!indent] in playacv.cls) using
   `\RequirePackage{silence}`
+* Added support for including pdf files e.g. as appendix using
+  `\RequirePackage{pdfpages}`
 * Preferential two colors sample with RuleColor for header/heading rules and SymbolColor for accentuated elements
 * Improved file structure with options to hide or highlight any element keeping everything else intact
   
