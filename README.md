@@ -3,10 +3,10 @@
 v1.0 (3 Nov 2023), by Martin Knöfel (martin.knoefel@gmail.com)
 
 * Added cv setting to enable quick content selection to include elements
-  *  `\newcommand{\cvsetting}[3][]{\ifnum #2=1 #3 \else #1\fi}`
+  * `\newcommand{\cvsetting}[3][]{\ifnum #2=1 #3 \else #1\fi}`
   e.g.
-  *`\cvsetting[\myOtherStuff]{1}{\myStuff}`
-  If ]{1}{ the output is `\myStuff` 
+  * `\cvsetting[\myOtherStuff]{1}{\myStuff}`
+  * If ]{1}{ the output is `\myStuff` 
   else `\myOtherStuff` is the output if e.g. ]{9}{.
   * With just `\cvsetting{9}{\myStuff}` the output is empty.
 * Many commands now support selective highlighting thanks to cvsetting.
@@ -21,9 +21,9 @@ v1.0 (3 Nov 2023), by Martin Knöfel (martin.knoefel@gmail.com)
 	\cvskill[]{}{},
 	\cvtag[]{},
     \cvref[]{}{}{}{}{}{}{}{}`
-    *If [9] the option is deactivated
-    *If [1..5] (only \cvitems) the 1..5th item is highlighted
-    *If [1] Text is highlighted (format depends on user settings)
+    * If [9] the option is deactivated
+    * If [1..5] (only \cvitems) the 1..5th item is highlighted
+    * If [1] Text is highlighted (format depends on user settings)
   * you can just use the commands without []
 * Added application letter option with own header, footer and geometry
 * Added watermark to headers and footers using
