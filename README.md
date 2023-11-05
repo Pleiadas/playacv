@@ -59,7 +59,7 @@ In sample.tex you can see the full display of options, template.tex provides a s
 
 ```latex
 %% Remove the "normalphoto" option if you want an image cropped to a circle instead of a square in the header
-% \documentclass[10pt,a4paper,withhyper]{playacv} % or add document options, e.g. withhyper for hidden urls
+% \documentclass[10pt,a4paper,withhyper,normalphoto]{playacv} % or add document options, e.g. withhyper for hidden urls
 
 \documentclass[11pt, a4paper, withhyper, ragged2e]{playacv}
 %
@@ -230,7 +230,7 @@ In sample.tex you can see the full display of options, template.tex provides a s
 	%%% \newcommand{\MySetting}{1} % before e.g. a shorter new text for your summary in the Summary chapter, with
 	%%% \cvsetting{\MySetting}{
 	%%% \renewcommand{\aSummary}{My shorter summary text}
-    %%% }
+        %%% }
 	
 	%% Choose chapters for this application
 	\renewcommand{\WithSkills}{1}
@@ -304,20 +304,7 @@ In sample.tex you can see the full display of options, template.tex provides a s
 	
 	%% Change user specific content settings e.g.
 	\newcommand{\PhD}{9}
-	
-	\newcommand{\drive}{9}
-	\newcommand{\itil}{9}
-	\newcommand{\IT}{9}
-	\newcommand{\ProjM}{9}
-	\newcommand{\ProdM}{9}
-	\newcommand{\med}{1}
-	\newcommand{\kpi}{9}
-	\newcommand{\HR}{9}
-	\newcommand{\agile}{9}
-	\newcommand{\startup}{9}
-	\newcommand{\UX}{9}
-	\newcommand{\AI}{9}
-	
+
 	%% Change experiences content
 	\renewcommand{\dExperienceFour}{5 years}
 	
@@ -376,28 +363,6 @@ In sample.tex you can see the full display of options, template.tex provides a s
 	\renewcommand{\ReferenceOne}{9}
 	\renewcommand{\fReferenceTwo}{1}
 	
-	\
-	
-%	\renewcommand{\Awards}{Awards and honors} % chapter TITLE
-%	
-%	\renewcommand{\AwardOne}{1} % set to 1 to include award/honor
-%	\renewcommand{\aAwardOne}{\href{https://web.archive.org/web/20230307063907/https://erlangen.de/aktuelles/1-2-millionen-euro-fuer-mehr-gruen-in-der-innenstadt}{Smart City Greens}} % name of award/honor
-%	\renewcommand{\bAwardOne}{\faTrophy} % symbol left of award from fontawesome 
-%	\renewcommand{\cAwardOne}{2021 Public funding for urban greens} % description
-%	\renewcommand{\fAwardOne}{9} % set to 1 to highlight award/honor
-%	
-%	\renewcommand{\AwardTwo}{1} % award #2
-%	\renewcommand{\aAwardTwo}{\href{https://esa-bic.de/by/}{ESA BIC Bavaria}}
-%	\renewcommand{\bAwardTwo}{\faRocket}
-%	\renewcommand{\cAwardTwo}{2018-20 Startup incubation program}
-%	\renewcommand{\fAwardTwo}{9}
-%	
-%	\renewcommand{\AwardThree}{9} % award #3
-%	\renewcommand{\aAwardThree}{Awards}
-%	\renewcommand{\bAwardThree}{\faTrophy}
-%	\renewcommand{\cAwardThree}{2020 \href{https://web.archive.org/web/20220808033053/https://www.fau.de/2020/10/news/studium/studierenden-teams-fuer-ihren-umwelteinsatz-ausgezeichnet/}{Environmental award Erlangen}
-%		2017 \href{https://www.hackbay.de/}{Hack|Bay in Nürnberg 1$^{st}$ place}}
-	
 	% highlights or other changes for this position, copy paste to bottom to create semantics short selections %%%
 	%%% Every last \renewcommand{\CvSetting}{SettingValue} will overwrite the previous setting                     #3
 	
@@ -451,9 +416,9 @@ In sample.tex you can see the full display of options, template.tex provides a s
 		\renewcommand{\eExperienceItemTwo}{9}
 		\renewcommand{\eExperienceItemThree}{9}
 		\renewcommand{\eExperienceItemFour}{1}
-		\renewcommand{\eExperienceItemsFour}{\cvitems{Product development and testing, software development, innovation}{}{}{}{}}
+		\renewcommand{\eExperienceItemsFour}{\cvitems{something}{}{}{}{}}
 		\renewcommand{\eExperienceItemFive}{9}
-		\renewcommand{\aExperienceFive}{Field service engineer for power plant automation \hfill {\small \bfseries Siemens SpA}}
+		\renewcommand{\aExperienceFive}{This job \hfill {\small \bfseries Company name}}
 		\renewcommand{\eSocialItemOne}{9}
 		\renewcommand{\eSocialItemTwo}{9}
 		\renewcommand{\eSocialTwo}{}
