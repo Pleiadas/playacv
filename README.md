@@ -14,7 +14,7 @@ v1.0 (3 Nov 2023), by Martin Knöfel (martin.knoefel@gmail.com)
     renders a highlighted Tag if `\UserTwo` = 1,
     or a regular Tag if `\UserTwo` = 9 (or another number)
   * used with
-    \cvitems[3]{}{}{}{}{},
+    `\cvitems[3]{}{}{}{}{},
 	\cventry[9]{}{}{}{},
 	\cvevent[1]{}{}{}{},
 	\cvachievement[]{}{}{},
