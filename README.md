@@ -55,10 +55,12 @@ v1.0 (3 Nov 2023), by Martin Knöfel (martin.knoefel@gmail.com)
 * The samples here use the [Lato](http://www.latofonts.com/lato-free-fonts/) and [Roboto Slab fonts](https://github.com/googlefonts/robotoslab). Feel free to use a different typeface package instead—often a different typeface will change the entire CV's feel.
 
 ## Sample
-In sample.tex you can see the full display of options, template.tex provides a standard cv template as you know them.
-
+In sample.pdf you can see the full display of options available in fictionary résumé, template.tex provides a standard cv template to start your own.
+* sample.tex source:
 ```latex
-%% Remove the "normalphoto" option if you want an image cropped to a circle instead of a square in the header
+% sample.tex v1.0 playacv full standardised options cv file
+% sample.pdf output is in appendix folder
+% Remove the "normalphoto" option if you want an image cropped to a circle instead of a square in the header
 % \documentclass[10pt,a4paper,withhyper,normalphoto]{playacv} % or add document options, e.g. withhyper for hidden urls
 
 \documentclass[11pt, a4paper, withhyper, ragged2e]{playacv}
@@ -389,9 +391,13 @@ In sample.tex you can see the full display of options, template.tex provides a s
 	\renewcommand{\cAppendixTwo}{0.95}
 	\renewcommand{\dAppendixTwo}{2}
 	
-	% your grouped settings
+	% your own cv settings
 	
 	% setting example
+	\cvsetting{\PhD}{
+	\renewcommand{\WithPublications}{1}
+	\renewcommand{\fPublicationTwo}{1}
+	}
 	
 	% setting to shrink cv to one page
 	\cvsetting{\OnePager}{
