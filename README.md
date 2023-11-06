@@ -1,7 +1,9 @@
 # PlayaCV, Plug and play LaTeX Application class
+v1.1 (5 Nov 2023), by Martin Knöfel (martin.knoefel@gmail.com)
+* changed `\cvref` to be aligned to the left
+* lacking spacing compensation for missing fields added
 
-v1.0 (3 Nov 2023), by Martin Knöfel (martin.knoefel@gmail.com)
-
+v1.0 (3 Nov 2023)
 * Added cv setting to enable quick content selection to include elements
   * `\newcommand{\cvsetting}[3][]{\ifnum #2=1 #3 \else #1\fi}`
   e.g.
@@ -49,7 +51,7 @@ v1.0 (3 Nov 2023), by Martin Knöfel (martin.knoefel@gmail.com)
 * Use the `normalphoto` option to get normal (i.e. non-circular) photos.
 * Separate your image filenames with commas _without_ spaces if given the option.
 * Use the `ragged2e` option to activate hyphenations while keeping text left-justified; line endings will thus be less jagged and more aesthetically pleasing.
-* As of altacv v1.3 the `withhyper` document class option will make the "personal info" fields into clickable hyperlinks (where it makes sense). See below for more details.
+* As of altacv v1.3.1 the `withhyper` document class option will make the "personal info" fields into clickable hyperlinks (where it makes sense). See below for more details.
 * Can now be compiled with pdflatex, XeLaTeX and LuaLaTeX!
   * Note that to compile with XeLaTeX, you should use a command line as follows, per [the `pdfx` documentation](http://mirrors.ctan.org/macros/latex/contrib/pdfx/pdfx.pdf): `xelatex -shell-escape -output-driver="xdvipdfmx -z 0" sample.tex`
 * The samples here use the [Lato](http://www.latofonts.com/lato-free-fonts/) and [Roboto Slab fonts](https://github.com/googlefonts/robotoslab). Feel free to use a different typeface package instead—often a different typeface will change the entire CV's feel.
@@ -525,7 +527,7 @@ You can also use `\swithcolumn*` for "synchronising" the columns, as well as oth
 
 ## Clickable Info fields
 
-As of v1.3, the `withhyper` document class option will load the `hyperref` package, and make fields in the personal detail fields into clickable hyperlinks (where it makes sense anyway).
+As of v1.3.1, the `withhyper` document class option will load the `hyperref` package, and make fields in the personal detail fields into clickable hyperlinks (where it makes sense anyway).
 
 *BIG CAVEAT:* Remember that not all readers may want to click on hyperlinks in PDFs. You may therefore sometimes want to _remove_ `withhyper`, and spell out the field URL details a bit more completely, e.g. `\github{github.com/your-id}`.
 
