@@ -1,0 +1,20 @@
+\cvsetting{\WithFooter}{
+	% left text, picture, center watermark and right text, picture
+	% e.g. location and date, QR, watermark and name, signature to the footer
+	\vfill % go to bottom of the page
+	% add watermark in the center
+	\cvsetting{\FooterWatermark}{
+		\begin{figure}[H]
+			\centering
+			\vspace{\eFooterWatermark cm}
+			\transparent{\cFooterWatermark}\hspace{\dFooterWatermark cm}\includegraphics[width=\bFooterWatermark cm]{\aFooterWatermark} % change size, horizontal position and transparency
+		\end{figure}
+		\vspace{-\bFooterWatermark cm} % vertical position compensation
+	}
+	%
+	% add left and right footer content
+	\begin{figure}[H]
+		\hspace{\dFooterPhotoL cm} \cvsetting{\FooterPhotoL}{\includegraphics[width=\bFooterPhotoL cm]{\aFooterPhotoL}} \hfill \cvsetting{\FooterPhotoR}{\includegraphics[width=\bFooterPhotoR cm]{\aFooterPhotoR}} \hspace{\dFooterPhotoR cm}\\ 
+		\hspace{\eFooterPhotoL cm} \cFooterPhotoL \hfill \cFooterPhotoR \hspace{\eFooterPhotoR cm}
+	\end{figure}
+}

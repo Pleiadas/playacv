@@ -1,0 +1,1104 @@
+% cv.tex %%%%%%
+% This is a CV settings and contents template for PlayaCV, based on yet another LaTeX CV (AltaCV)
+% created by Martin Knöfel (https://github.com/Pleiadas/), v1.0, Nov 5, 2023
+% may be distributed and/or modified under the 
+% Creative Commons (https://creativecommons.org/licenses/by/4.0/) license (attribution)
+% version 4.0 as of Nov 5, 2023, or under the 
+% LaTeX Project Public License v1.3 (see below)
+% Compiles with pdfLaTeX, XeLaTeX and LuaLaTeX
+%
+% To be used according to cover letter body or see ReadMe.md 
+%
+% PlayaCV uses the fontawesome5 icon package
+% See https://texdoc.net/pkg/fontawesome5 for full list of symbols
+% 
+%% The files playacv.cls and cv.tex include parts from
+%% altacv.cls v1.6.5, 3 Nov 2022 written by LianTze Lim (liantze@gmail.com)
+%% (https://github.com/liantze/AltaCV)
+%% which may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in http://www.latex-project.org/lppl.txt
+%% and version 1.3 or later is part of all distributions of LaTeX
+%% version 2003/12/01 or later.
+%%%%%%%%%%%%%%%
+
+% you might set up this file once with all your default information and settings
+
+% your contact data
+\newcommand{\myName}{Colum Namvitae}
+\newcommand{\myMail}{colum.namvitae@mail.kom}
+\newcommand{\myPhone}{+987 654 3210-13}
+\newcommand{\myStreet}{Way 32}
+\newcommand{\myZIP}{ZIP}
+\newcommand{\myCity}{Aplace}
+\newcommand{\myState}{Earth}
+\newcommand{\myAddress}{\myStreet, \myZIP{} \myCity, \myState}
+\newcommand{\myLinkedin}{my-linkedin}
+% add an address link here and other urls in the cv, but don't forget to escape or encode the right characters!
+\newcommand{\myAddressURL}{https://www.openstreetmap.org/\#map=5/69/42}
+
+% change the page layout if you need to
+\geometry{left=1.5cm,right=2cm,top=1.5cm,bottom=1.5cm,columnsep=0.3cm}
+
+% change the font if you want to, depending on whether
+% you're using pdflatex or xelatex/lualatex
+\ifxetexorluatex
+% If using xelatex or lualatex:
+\setmainfont{Roboto Slab}
+\setsansfont{Lato}
+\renewcommand{\familydefault}{\sfdefault}
+\else
+% If using pdflatex:
+\usepackage[rm]{roboto}
+\usepackage[defaultsans]{lato}
+% \usepackage{sourcesanspro}
+\renewcommand{\familydefault}{\sfdefault}
+\fi
+
+% change the colours if you want to, grayscales are recommended
+\definecolor{LightGrey}{HTML}{777777}
+\definecolor{DarkGrey}{HTML}{333333}
+\definecolor{Grey}{HTML}{424242}
+
+% colours settings
+\colorlet{name}{DarkGrey} % Name at top
+\colorlet{heading}{Grey} % TITLES
+\colorlet{emphasis}{black} % Titles
+\colorlet{body}{DarkGrey} % Body
+\colorlet{headingrule}{RuleColor} % Lines, RuleColor defined in your own name.tex cv file
+\colorlet{accent}{SymbolColor} % Symbols, SymbolColor defined in your own name.tex cv file
+\colorlet{highlight}{HighlightColor} % Symbols, SymbolColor defined in your own name.tex cv file
+
+% change some fonts, if necessary
+\renewcommand{\namefont}{\Huge\rmfamily\bfseries}
+\renewcommand{\personalinfofont}{\footnotesize}
+\renewcommand{\cvsectionfont}{\LARGE\rmfamily\bfseries}
+\renewcommand{\cvsubsectionfont}{\large\bfseries}
+
+% depending on your tastes, change fontsize of itemize environment content
+\AtBeginEnvironment{itemize}{\small}
+
+% change the bullets for itemize and rating marker
+% for \cvskill if you want to
+%\renewcommand{\itemmarker}{{\small\textbullet}}
+%\renewcommand{\ratingmarker}{\faStar}
+
+% add text under name (removing it might change the vertical alignment of things), 1 = include, 9 = nein    
+\newcommand{\HeaderQuote}{1} % set to 1 include text under name
+\newcommand{\aHeaderQuote}{PlayaCV \LaTeX{} Template} % change default text under name, e.g. Résumé for Company X, position description, your motto
+\newcommand{\bHeaderQuote}{DarkGrey} % change colour of text under name
+
+% default document settings
+
+% header settings, 1 = include, 9 = no
+% go to cvHeader.tex or to \makecvheader in playacv.cls for further modifications to the top part of the cv
+\newcommand{\WithHeader}{1}
+
+% you can add one or multiple photos on the left or right with ',' e.g. qr,pic
+\newcommand{\aHeaderPhoto}{img/qr} % photo(s) file name/s without extensions, e.g. pic or qr,pic
+\newcommand{\bHeaderPhoto}{2} % photo dimensions in cm
+
+% choose one
+\newcommand{\HeaderPhotoR}{1} % set to 1 to include photo(s) on the right
+\newcommand{\HeaderPhotoL}{9} % set to 1 to include photo(s) on the left
+
+% add centered watermark to header
+\newcommand{\HeaderWatermark}{9} % set to 1 to include watermark
+\newcommand{\aHeaderWatermark}{img/watermark} % watermark picture file name
+\newcommand{\bHeaderWatermark}{2} % watermark width in cm
+\newcommand{\cHeaderWatermark}{1} % watermark opacity in 0..1
+\newcommand{\dHeaderWatermark}{0.0} % left -/+ right distance from center in cm
+\newcommand{\eHeaderWatermark}{-0.75} % up -/+ down position in cm
+
+% cover letter header width for left and right minipages (contact data) at the top of the page
+\newcommand{\HeaderWidthL}{0.5}
+\newcommand{\HeaderWidthR}{0.3}
+
+% footer settings
+\newcommand{\WithFooter}{1}
+
+% you can add photos with text under it on the left and/or right
+\newcommand{\FooterPhotoL}{9} % set to 1 to include picture on the left
+\newcommand{\aFooterPhotoL}{img/qr} % picture file name without extension, e.g. qr
+\newcommand{\bFooterPhotoL}{2} % picture width in cm
+\newcommand{\cFooterPhotoL}{\myCity, \today} % text in the left bottom corner (under left picture), can be empty
+\newcommand{\dFooterPhotoL}{.5} % distance of the bottom left picture from left border in cm
+\newcommand{\eFooterPhotoL}{0.0} % distance of the left bottom text from left border in cm
+
+\newcommand{\FooterPhotoR}{1} % set to 1 to include picture on the right, appropriate spot for signature
+\newcommand{\aFooterPhotoR}{img/sign} % picture file name without extension, e.g. signature
+\newcommand{\bFooterPhotoR}{4} % picture width in cm
+\newcommand{\cFooterPhotoR}{\myName} % text in the right bottom corner (under right picture), can be empty
+\newcommand{\dFooterPhotoR}{0.0} % distance of the bottom right picture from right border in cm
+\newcommand{\eFooterPhotoR}{0.75} % distance of the right bottom text from right border in cm
+
+% add centered watermark to footer
+\newcommand{\FooterWatermark}{9} % set to 1 to include watermark
+\newcommand{\aFooterWatermark}{img/watermark} % watermark picture file name
+\newcommand{\bFooterWatermark}{2} % watermark dimensions in cm
+\newcommand{\cFooterWatermark}{0.75} % watermark opacity in 0..1
+\newcommand{\dFooterWatermark}{0.0} % left -/+ right distance from center
+\newcommand{\eFooterWatermark}{0.0} % up -/+ down shift
+
+% column settings
+% set the left/right column width ratio to 37:63.
+\newcommand{\MyColumnRatio}{0.4}
+
+%%% choose default order of chapters to be displayed on the left side, from top to bottom
+%%% left column
+
+\newcommand{\LeftColumn}{
+	\input{chap/_Summary}
+	\input{chap/_PersonalInfo}
+	\input{chap/_Education2}
+	\input{chap/_Certifications}
+	\input{chap/_Skills}
+	\input{chap/_Languages}
+	
+	% you can force a page break within a column with \newpage
+	%\newpage
+	
+	\input{chap/_Awards}
+	\input{chap/_SoftSkills}
+	\input{chap/_Projects}
+	\input{chap/_References}
+	
+	% rogue chapter
+	%\cvsection{Rogue life} % feel free to add a new blank chapter in any column with \cvsection{MyTitle}
+	%feel free to add a new blank chapter with \texttt{cvsection$\textmd{\{Rogue chapter\}}$} in any column
+	%\smallskip
+}
+
+%%% choose default order of chapters to be displayed on the right side, from top to bottom
+%%% right column
+%
+\newcommand{\RightColumn}{
+	\input{chap/_Experience}
+	\input{chap/_Education}
+	\input{chap/_Publications}
+	\input{chap/_Volunteering}
+	\input{chap/_Hobbies}
+	%\input{chap/mychapter}
+}
+
+% pubs.bib contains your publications
+% \addbibresource{bib/pubs.bib}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+% \input{bib/pubs-authoryear}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+% \input{bib/pubs-num}
+
+% your default chapters and cv content settings %%%%%%%%%%%%%%%%%%%%%%%%%%% % CONTENT SETTINGS %
+%
+% set visibility and values. Uses 
+% \newcommand{\WithCvContent}{1} here, to include items for anywhere or set default values,
+% e.g. \cvsetting{\WithCvContent}{\CvThings} would include \CvThings somewhere
+%
+%%%%%%%%%%%%%%%%%%%%% these {setting}{values} will be used as standard values when compiling %%%
+
+% letter default settings
+\newcommand{\OnlyCoverLetter}{9} % set to 1 to print only letter to PDF
+\newcommand{\WithCoverLetter}{9} % set to 1 to print letter + CV to PDF
+\newcommand{\WithBody}{1}
+\newcommand{\Body}{Cover letter body}
+
+% abstract settings
+\newcommand{\WithAbstract}{9}
+\newcommand{\Abstract}{Abstract}
+
+\newcommand{\aAbstract}{A short abstract in the beginning, if you wish}
+\newcommand{\bAbstract}{\large}
+\newcommand{\cAbstract}{accent}
+
+% appendix settings e.g. for adding additional documents to your application
+\newcommand{\WithAppendix}{9}
+
+\newcommand{\AppendixOne}{1} % set to 1 to include Appendix chapter #1
+\newcommand{\aAppendixOne}{Appendix 1 (one page pdf/image)} % appendix TITLE
+\newcommand{\bAppendixOne}{appendix/snow} % appendix file (image, pdf)
+\newcommand{\cAppendixOne}{0.96} % scaling factor
+\newcommand{\dAppendixOne}{1} % if greater then 1, prints all pages from 1 to \dAppendixOne
+
+
+\newcommand{\AppendixTwo}{1} % appendix #2
+\newcommand{\aAppendixTwo}{Appendix 2 (more pages pdf file)}
+\newcommand{\bAppendixTwo}{appendix/sample}
+\newcommand{\cAppendixTwo}{0.95}
+\newcommand{\dAppendixTwo}{3} % print the first 3 pages
+
+
+\newcommand{\AppendixThree}{9} % appendix #3
+\newcommand{\aAppendixThree}{Appendix 3}
+\newcommand{\bAppendixThree}{appendix/..}
+\newcommand{\cAppendixThree}{0.8}
+\newcommand{\dAppendixThree}{3}
+
+
+\newcommand{\AppendixFour}{9} % appendix #4
+\newcommand{\aAppendixFour}{Appendix 4}
+\newcommand{\bAppendixFour}{appendix/..}
+\newcommand{\cAppendixFour}{0.8}
+\newcommand{\dAppendixFour}{1}
+
+
+\newcommand{\AppendixFive}{9} % appendix #5
+\newcommand{\aAppendixFive}{Appendix 5}
+\newcommand{\bAppendixFive}{appendix/..}
+\newcommand{\cAppendixFive}{.5}
+\newcommand{\dAppendixFive}{1}
+
+
+% awards chapter settings
+\newcommand{\WithAwards}{9} % set to 1 to include awards chapter
+\newcommand{\Awards}{Awards and honors} % chapter TITLE
+
+\newcommand{\AwardOne}{1} % set to 1 to include award/honor
+\newcommand{\aAwardOne}{My awesome award} % name of award/honor
+\newcommand{\bAwardOne}{\faTrophy} % symbol left of award (see https://texdoc.org/serve/fontawesome5/0)
+\newcommand{\cAwardOne}{20YY The deed that brought it} % description
+\newcommand{\fAwardOne}{9} % set to 1 to highlight award/honor
+
+\newcommand{\AwardTwo}{1} % award #2
+\newcommand{\aAwardTwo}{I'm a star for this}
+\newcommand{\bAwardTwo}{\faStar}
+\newcommand{\cAwardTwo}{20YY Something wild}
+\newcommand{\fAwardTwo}{9}
+
+\newcommand{\AwardThree}{9} % award #3
+\newcommand{\aAwardThree}{Award 3}
+\newcommand{\bAwardThree}{\faTrophy}
+\newcommand{\cAwardThree}{YYYY}
+\newcommand{\fAwardThree}{9}
+
+\newcommand{\AwardFour}{9} % award #4
+\newcommand{\aAwardFour}{Award 4}
+\newcommand{\bAwardFour}{\faTrophy}
+\newcommand{\cAwardFour}{YYYY}
+\newcommand{\fAwardFour}{9}
+
+\newcommand{\AwardFive}{9} % award #5
+\newcommand{\aAwardFive}{Award 5}
+\newcommand{\bAwardFive}{\faTrophy}
+\newcommand{\cAwardFive}{YYYY}
+\newcommand{\fAwardFive}{9}
+
+% certifications chapter settings
+\newcommand{\WithCertifications}{9} % set to 1 to include certifications chapter
+\newcommand{\Certifications}{Certifications} % chapter TITLE
+
+\newcommand{\CertificationOne}{1} % set to 1 to include certification
+\newcommand{\aCertificationOne}{Certification 1} % create your own cv item, copy from other chapters
+\newcommand{\bCertificationOne}{Issuer Name} %
+\newcommand{\cCertificationOne}{Cert Number} %
+\newcommand{\dCertificationOne}{12345678} %
+\newcommand{\eCertificationOne}{A text} %
+\newcommand{\fCertificationOne}{1} % set to 1 to highlight certification
+
+\newcommand{\CertificationTwo}{1} % certification 2
+\newcommand{\aCertificationTwo}{Certification 2}
+\newcommand{\bCertificationTwo}{Issuer Name}
+\newcommand{\cCertificationTwo}{Verification Number}
+\newcommand{\dCertificationTwo}{12345678}
+\newcommand{\eCertificationTwo}{}
+\newcommand{\fCertificationTwo}{9}
+
+\newcommand{\CertificationThree}{9} % certification 3
+\newcommand{\aCertificationThree}{Certification 3}
+\newcommand{\bCertificationThree}{Issuer Name}
+\newcommand{\cCertificationThree}{Verification Number}
+\newcommand{\dCertificationThree}{12345678}
+\newcommand{\eCertificationThree}{A text}
+\newcommand{\fCertificationThree}{9}
+
+\newcommand{\CertificationFour}{9} % certification 4
+\newcommand{\aCertificationFour}{Certification 4}
+\newcommand{\bCertificationFour}{Issuer Name}
+\newcommand{\cCertificationFour}{Verification Number}
+\newcommand{\dCertificationFour}{12345678}
+\newcommand{\eCertificationFour}{A text}
+\newcommand{\fCertificationFour}{9}
+
+\newcommand{\CertificationFive}{9} % certification 5
+\newcommand{\aCertificationFive}{Certification 5}
+\newcommand{\bCertificationFive}{Issuer Name}
+\newcommand{\cCertificationFive}{Verification Number}
+\newcommand{\dCertificationFive}{12345678}
+\newcommand{\eCertificationFive}{A text}
+\newcommand{\fCertificationFive}{9}
+
+% education chapter settings
+\newcommand{\WithEducation}{1} % set to 1 to include education chapter
+\newcommand{\Education}{Education} % chapter TITLE
+
+\newcommand{\EducationOne}{1} % set to 1 to include education entry
+\newcommand{\aEducationOne}{My last degree prgramme} % plain title on the left
+\newcommand{\bEducationOne}{
+	\textcolor{HighlightColor}{\href{https://link/}{B.Sc./M.A./PhD in my specialty}}
+} % smaller, bold, right text
+\newcommand{\cEducationOne}{\faUniversity Awesome University, City, Earth} % left symbol and text
+\newcommand{\dEducationOne}{\faCalendar{} Oct 20YY -- Sep 20YY} % right symbol and text e.g. date
+\newcommand{\eEducationItemOne}{9} % set to 1 to show Items
+\newcommand{\eEducationOne}{Thesis: Something interesting \\Grade Point Average: 3.3} % text (above Items)
+\newcommand{\fEducationOne}{9} % set to 1 to highlight education entry (item)
+\newcommand{\eEducationItemsOne}{
+	\cvitems
+	[\fEducationOne] % highlight 1..5 or 9
+	{Major 1} % items {1}..{5}
+	{Major 2}
+	{}
+	{}
+	{}
+}
+
+\newcommand{\EducationTwo}{1} % education #2
+\newcommand{\aEducationTwo}{Previous school} % compensate with \vspace when leaving a title out
+\newcommand{\bEducationTwo}{That specialisation} 
+\newcommand{\cEducationTwo}{\faMapMarker{} City, Earth}
+\newcommand{\dEducationTwo}{\faCalendar{} Sep 20YY - Jun 20YY}
+\newcommand{\eEducationItemTwo}{9} % set to 1 to use \eEducationItemsTwo
+\newcommand{\eEducationTwo}{
+	Participated in extracurricular activities
+}
+\newcommand{\fEducationTwo}{9}
+\newcommand{\eEducationItemsTwo}{\cvitems[\fEducationTwo]{}{}{}{}{}}
+
+\newcommand{\EducationThree}{9} % education #3
+\newcommand{\aEducationThree}{Education 3}
+\newcommand{\bEducationThree}{Title/Degree}
+\newcommand{\cEducationThree}{\faMapMarker{} }
+\newcommand{\dEducationThree}{\faCalendar{} always -- \today}
+\newcommand{\eEducationItemThree}{1}
+\newcommand{\eEducationThree}{A description}
+\newcommand{\fEducationThree}{9}
+\newcommand{\eEducationItemsThree}{\cvitems[\fEducationThree]{}{}{}{}{}}
+
+\newcommand{\EducationFour}{9} % education #4
+\newcommand{\aEducationFour}{Education 4}
+\newcommand{\bEducationFour}{Title/Degree}
+\newcommand{\cEducationFour}{everywhere}
+\newcommand{\dEducationFour}{\faCalendar{} }
+\newcommand{\eEducationItemFour}{9}
+\newcommand{\eEducationFour}{A description}
+\newcommand{\fEducationFour}{9}
+\newcommand{\eEducationItemsFour}{\cvitems[\fEducationFour]{And an item}{}{}{}{}}
+
+\newcommand{\EducationFive}{9} % education #5
+\newcommand{\aEducationFive}{Education 5}
+\newcommand{\bEducationFive}{Title/Degree}
+\newcommand{\cEducationFive}{place, Earth}
+\newcommand{\dEducationFive}{\faCalendar{} }
+\newcommand{\eEducationItemFive}{9}
+\newcommand{\eEducationFive}{}
+\newcommand{\fEducationFive}{9}
+\newcommand{\eEducationItemsFive}{\cvitems[\fEducationFive]{Good deed 1}{}{}{}{}}
+
+% further education chapter settings
+\newcommand{\WithTrainings}{9} % set to 1 to include further education chapter
+\newcommand{\Trainings}{Further Education} % chapter TITLE
+
+\newcommand{\TrainingsIndent}{1} % ToDo, see [!indent] in playacv.cls] 
+\newcommand{\TrainingsItems}{\cvlist[\TrainingsIndent]
+	{20YY}{This relevant training (6 months) $\cdot$ That bootcamp (1 week) $\cdot$ Also done (1 day)} % description item[{20YY}] {text} #1
+	{Topic}{Specialisation as ..} % item #2
+	{}{} % item #3
+	{}{} % item #4 (add new \cvlist if you need more than 4)
+}
+
+% experience chapter settings
+\newcommand{\WithExperience}{1} % set to 1 to include experience chapter
+\newcommand{\Experience}{Experience} % chapter TITLE
+
+\newcommand{\ExperienceOne}{1} % set to 1 to include experience entry
+\newcommand{\adExperienceOne}{\cvevent
+	{The job I wanna leave \hfill {\small \textbf{current Company}}} % optional title
+	{} % optional smaller, bold, subtitle
+	{Location} % location
+	{May 2023 -- now} % time period
+}
+\newcommand{\eExperienceItemOne}{1} % set to 1 to show Items
+\newcommand{\eExperienceOne}{Uses only first line} % text (above items)
+\newcommand{\fExperienceOne}{3} % set to 1..5 to highlight experience or 9
+\newcommand{\eExperienceItemsOne}{\cvitems[\fExperienceOne] % highlight option 1..5 or 9
+	{My main responsibilities} % items {1}..{5}
+	{Impressive (highlighted with fExperienceOne = 3)}
+	{Item 3}
+	{}
+	{}
+}
+
+\newcommand{\ExperienceTwo}{1} % experience #2
+\newcommand{\adExperienceTwo}{
+	\cvevent{My fantastic experience} % optional title
+	{Previous company} % optional subtitle
+	{Beautiful city, Earth}
+	{May 2021 -- Apr 2023}
+}
+\newcommand{\eExperienceItemTwo}{1}
+\newcommand{\eExperienceTwo}{Title first line, subtitle and highlight} % own text/items
+\newcommand{\fExperienceTwo}{2} % set to 1..5 to highlight experience
+\newcommand{\eExperienceItemsTwo}{\cvitems[\fExperienceTwo]{Masterfully done this}{Also took care of that}{}{}{}}
+
+\newcommand{\ExperienceThree}{1} % experience #3
+\newcommand{\adExperienceThree}{
+	\cvevent{} % optional title
+	{My pandemic experience} % small bold title
+	{\myAddress} % location
+	{Mar 2020 -- Apr 2021} % time period
+}
+\newcommand{\eExperienceItemThree}{9}
+\newcommand{\eExperienceThree}{Only bold small (sub)title}
+\newcommand{\fExperienceThree}{9}
+\newcommand{\eExperienceItemsThree}{\cvitems[\fExperienceThree]{}{}{}{}{}}
+
+\newcommand{\ExperienceFour}{9} % experience #4
+\newcommand{\adExperienceFour}{
+	\cvevent{}{}{}{}
+}
+\newcommand{\eExperienceItemFour}{9}
+\newcommand{\eExperienceFour}{}
+\newcommand{\fExperienceFour}{9}
+\newcommand{\eExperienceItemsFour}{\cvitems[\fExperienceFour]{}{}{}{}{}}
+
+\newcommand{\ExperienceFive}{9} % experience #5
+\newcommand{\adExperienceFive}{
+	\cvevent{}{}{}{}
+}
+\newcommand{\eExperienceItemFive}{9}
+\newcommand{\eExperienceFive}{}
+\newcommand{\fExperienceFive}{9}
+\newcommand{\eExperienceItemsFive}{\cvitems[\fExperienceFive]{}{}{}{}{}}
+
+\newcommand{\ExperienceSix}{9} % experience #6
+\newcommand{\adExperienceSix}{
+	\cvevent{}{}{}{}
+}
+\newcommand{\eExperienceItemSix}{9}
+\newcommand{\eExperienceSix}{}
+\newcommand{\fExperienceSix}{9}
+\newcommand{\eExperienceItemsSix}{\cvitems[\fExperienceSix]{}{}{}{}{}}
+
+\newcommand{\ExperienceSeven}{9} % experience #7
+\newcommand{\adExperienceSeven}{
+	\cvevent{}{}{}{}
+}
+\newcommand{\eExperienceItemSeven}{9}
+\newcommand{\eExperienceSeven}{}
+\newcommand{\fExperienceSeven}{9}
+\newcommand{\eExperienceItemsSeven}{\cvitems[\fExperienceSeven]{}{}{}{}{}}
+
+\newcommand{\ExperienceEight}{9} % experience #8
+\newcommand{\adExperienceEight}{
+	\cvevent{}{}{}{}
+}
+\newcommand{\eExperienceItemEight}{9}
+\newcommand{\eExperienceEight}{}
+\newcommand{\fExperienceEight}{9}
+\newcommand{\eExperienceItemsEight}{\cvitems[\fExperienceEight]{}{}{}{}{}}
+
+\newcommand{\ExperienceNine}{9} % experience #9
+\newcommand{\adExperienceNine}{
+	\cvevent{}{}{}{}
+}
+\newcommand{\eExperienceItemNine}{9}
+\newcommand{\eExperienceNine}{}
+\newcommand{\fExperienceNine}{9}
+\newcommand{\eExperienceItemsNine}{\cvitems[\fExperienceNine]{}{}{}{}{}}
+
+\newcommand{\ExperienceTen}{9} % experience #10
+\newcommand{\adExperienceTen}{
+\cvevent{}{}{}{}
+}
+\newcommand{\eExperienceItemTen}{9}
+\newcommand{\eExperienceTen}{}
+\newcommand{\fExperienceTen}{9}
+\newcommand{\eExperienceItemsTen}{\cvitems[\fExperienceTen]{}{}{}{}{}}
+
+% hobbies chapter settings
+\newcommand{\WithHobbies}{9} % set to 1 to include hobbies chapter
+\newcommand{\Hobbies}{My Hobbies} % chapter TITLE
+
+\newcommand{\HobbyOne}{1}
+\newcommand{\aHobbyOne}{Philosophy}
+
+\newcommand{\HobbyTwo}{1}
+\newcommand{\aHobbyTwo}{Yoga}
+
+\newcommand{\HobbyThree}{1}
+\newcommand{\aHobbyThree}{Reading}
+
+\newcommand{\HobbyFour}{9}
+\newcommand{\aHobbyFour}{Cooking}
+
+\newcommand{\HobbyFive}{1}
+\newcommand{\aHobbyFive}{Woodworking}
+
+\newcommand{\HobbySix}{9}
+\newcommand{\aHobbySix}{Working \faHeart You}
+
+\newcommand{\HobbySeven}{9}
+\newcommand{\aHobbySeven}{}
+
+\newcommand{\HobbyEight}{9}
+\newcommand{\aHobbyEight}{}
+
+\newcommand{\HobbyNine}{9}
+\newcommand{\aHobbyNine}{}
+
+\newcommand{\HobbyTen}{9}
+\newcommand{\aHobbyTen}{}
+
+\newcommand{\HobbyEleven}{9}
+\newcommand{\aHobbyEleven}{}
+
+\newcommand{\HobbyTwelve}{9}
+\newcommand{\aHobbyTwelve}{}
+
+\newcommand{\HobbyThirteen}{9}
+\newcommand{\aHobbyThirteen}{}
+
+\newcommand{\HobbyFourteen}{9}
+\newcommand{\aHobbyFourteen}{}
+
+\newcommand{\HobbyFifteen}{1}
+\newcommand{\aHobbyFifteen}{Cats \href{https://github.com/Pleiadas/playacv/}{\faGithub}}
+
+% languages chapter settings
+\newcommand{\WithLanguages}{1} % set to 1 to include languages chapter
+\newcommand{\Languages}{Languages} % chapter TITLE
+
+\newcommand{\LanguageOne}{1} % set to 1 to include language
+\newcommand{\aLanguageOne}{My first language} % language name
+\newcommand{\bLanguageOne}{5} % language skill level from 1 to 5
+\newcommand{\cLanguageOne}{native} % language level description
+\newcommand{\fLanguageOne}{9} % set to 1 to highlight language
+
+\newcommand{\LanguageTwo}{1} % language #2
+\newcommand{\aLanguageTwo}{English}
+\newcommand{\bLanguageTwo}{4}
+\newcommand{\cLanguageTwo}{proficient}
+\newcommand{\fLanguageTwo}{9}
+
+\newcommand{\LanguageThree}{1} % language #3
+\newcommand{\aLanguageThree}{Chinese}
+\newcommand{\bLanguageThree}{3.5}
+\newcommand{\cLanguageThree}{independent}
+\newcommand{\fLanguageThree}{9}
+
+\newcommand{\LanguageFour}{1} % language #4
+\newcommand{\aLanguageFour}{Swedish}
+\newcommand{\bLanguageFour}{2}
+\newcommand{\cLanguageFour}{basic}
+\newcommand{\fLanguageFour}{9}
+
+\newcommand{\LanguageFive}{9} % language #5
+\newcommand{\aLanguageFive}{Norwegian}
+\newcommand{\bLanguageFive}{5}
+\newcommand{\cLanguageFive}{native}
+\newcommand{\fLanguageFive}{9}
+
+\newcommand{\LanguageSix}{9} % language #6
+\newcommand{\aLanguageSix}{Spanish}
+\newcommand{\bLanguageSix}{5}
+\newcommand{\cLanguageSix}{native}
+\newcommand{\fLanguageSix}{9}
+
+\newcommand{\LanguageSeven}{9} % language #7
+\newcommand{\aLanguageSeven}{French}
+\newcommand{\bLanguageSeven}{1}
+\newcommand{\cLanguageSeven}{beginner}
+\newcommand{\fLanguageSeven}{9}
+
+\newcommand{\LanguageEight}{9} % language #8
+\newcommand{\aLanguageEight}{Italian}
+\newcommand{\bLanguageEight}{5}
+\newcommand{\cLanguageEight}{native}
+\newcommand{\fLanguageEight}{9}
+
+\newcommand{\LanguageNine}{9} % language #9
+\newcommand{\aLanguageNine}{Italian}
+\newcommand{\bLanguageNine}{5}
+\newcommand{\cLanguageNine}{native}
+\newcommand{\fLanguageNine}{9}
+
+\newcommand{\LanguageTen}{9} % language #10
+\newcommand{\aLanguageTen}{Italian}
+\newcommand{\bLanguageTen}{5}
+\newcommand{\cLanguageTen}{native}
+\newcommand{\fLanguageTen}{9}
+
+% personal information chapter settings, 1 = include, 9 = NEIN
+\newcommand{\WithPersonalInfo}{9} % set to 1 to include personal information chapter
+\newcommand{\PersonalInfo}{Personal data} % chapter TITLE
+
+\newcommand{\PersonalInfoOne}{1} % set to 1 to include personal detail
+\newcommand{\aPersonalInfoOne}{Birth date, place} % personal information top (bold)
+% See https://mirrors.ibiblio.org/CTAN/fonts/fontawesome/doc/fontawesome.pdf
+\newcommand{\bPersonalInfoOne}{\faSeedling} % symbol left of personal information from fontawesome 
+\newcommand{\cPersonalInfoOne}{5 Nov 2005, Hopeman, Scotland} % personal info bottom (normal)
+
+\newcommand{\PersonalInfoTwo}{1} % personal information #2
+\newcommand{\aPersonalInfoTwo}{Citizenships}
+\newcommand{\bPersonalInfoTwo}{\faFlag[]}
+\newcommand{\cPersonalInfoTwo}{Vietnam, UK}
+
+\newcommand{\PersonalInfoThree}{9} % personal information #3
+\newcommand{\aPersonalInfoThree}{Marital status}
+\newcommand{\bPersonalInfoThree}{\faGg} % \faVenusDouble \faVenusMars \faMarsDouble
+\newcommand{\cPersonalInfoThree}{Married}
+
+\newcommand{\PersonalInfoFour}{9} % personal information #4
+\newcommand{\aPersonalInfoFour}{Driving License}
+\newcommand{\bPersonalInfoFour}{\faCar}
+\newcommand{\cPersonalInfoFour}{B (EU)}
+
+\newcommand{\PersonalInfoFive}{9} % personal information #5
+\newcommand{\aPersonalInfoFive}{Gender, pronouns}
+\newcommand{\bPersonalInfoFive}{\faGenderless} % \faVenus \faTransgender \faIntersex \faTransgenderAlt \faMars
+\newcommand{\cPersonalInfoFive}{you} % or hem. Whatever suits you
+
+\newcommand{\PersonalInfoSix}{9} % personal information #6
+\newcommand{\aPersonalInfoSix}{Disabilities}
+\newcommand{\bPersonalInfoSix}{\faUniversalAccess}
+\newcommand{\cPersonalInfoSix}{}
+
+\newcommand{\PersonalInfoSeven}{9} % personal information #7
+\newcommand{\aPersonalInfoSeven}{Something else}
+\newcommand{\bPersonalInfoSeven}{\faFeather*}
+\newcommand{\cPersonalInfoSeven}{The personal detail}
+
+\newcommand{\PersonalInfoEight}{9} % personal information #8
+\newcommand{\aPersonalInfoEight}{Residency permit in}
+\newcommand{\bPersonalInfoEight}{\faFiles[]} % see https://texdoc.org/serve/fontawesome5/0 for symbols
+\newcommand{\cPersonalInfoEight}{Something else}
+
+\newcommand{\PersonalInfoNine}{9} % personal information #9
+\newcommand{\aPersonalInfoNine}{Something}
+\newcommand{\bPersonalInfoNine}{\faGg}
+\newcommand{\cPersonalInfoNine}{Something something}
+
+\newcommand{\PersonalInfoTen}{9} % personal information #10
+\newcommand{\aPersonalInfoTen}{Something you need to share}
+\newcommand{\bPersonalInfoTen}{\faGg}
+\newcommand{\cPersonalInfoTen}{Some juicy data}
+
+% projects chapter settings
+\newcommand{\WithProjects}{9} % set to 1 to include projects chapter
+\newcommand{\Projects}{Projects} % chapter TITLE
+
+\newcommand{\ProjectOne}{1} % set to 1 to include project entry
+\newcommand{\aProjectOne}{Last Project} % project title
+\newcommand{\bProjectOne}{Role I had} % project bold subtitle
+\newcommand{\cProjectOne}{Location} % place
+\newcommand{\dProjectOne}{2023 -- 2024} % date
+\newcommand{\eProjectOne}{} % text
+
+\newcommand{\ProjectTwo}{1} % project #2
+\newcommand{\aProjectTwo}{Project you might like \hfill \textbf{Institution}}
+\newcommand{\bProjectTwo}{My position then}
+\newcommand{\cProjectTwo}{Location}
+\newcommand{\dProjectTwo}{6 months}
+\newcommand{\eProjectTwo}{Description}
+
+\newcommand{\ProjectThree}{9} % project #3
+\newcommand{\aProjectThree}{Project 3}
+\newcommand{\bProjectThree}{Role, info}
+\newcommand{\cProjectThree}{Location}
+\newcommand{\dProjectThree}{Time}
+\newcommand{\eProjectThree}{Description}
+
+\newcommand{\ProjectFour}{9} % project #4
+\newcommand{\aProjectFour}{Project 4}
+\newcommand{\bProjectFour}{}
+\newcommand{\cProjectFour}{Location}
+\newcommand{\dProjectFour}{Time}
+\newcommand{\eProjectFour}{Description}
+
+\newcommand{\ProjectFive}{9} % project #5
+\newcommand{\aProjectFive}{Project 5}
+\newcommand{\bProjectFive}{}
+\newcommand{\cProjectFive}{Location}
+\newcommand{\dProjectFive}{Time}
+\newcommand{\eProjectFive}{Description}
+
+% publications chapter settings
+\newcommand{\WithPublications}{9} % set to 1 to include publications chapter
+\newcommand{\Publications}{Publications} % chapter TITLE
+
+\newcommand{\PublicationOne}{1} % set to 1 to include publication
+\newcommand{\aPublicationOne}{Important publication on the subject} % optional plain left aligned title
+\newcommand{\bPublicationOne}{Publisher} % optional smaller bold right aligned title text
+\newcommand{\cPublicationOne}{\myAddress} % place
+\newcommand{\dPublicationOne}{\today} % date
+\newcommand{\ePublicationItemOne}{1} % set to 1 to use items
+\newcommand{\ePublicationOne}{The highlights of the findings} % text
+\newcommand{\fPublicationOne}{2} % set to 1..5 to highlight publication/item
+\newcommand{\ePublicationItemsOne}{
+	\cvitems[\fPublicationOne]{Detail 1}{Detail 2}{Detail 3}{}{}
+}
+
+\newcommand{\PublicationTwo}{1} % publication #2
+\newcommand{\aPublicationTwo}{Publication 2}
+\newcommand{\bPublicationTwo}{Publisher/institution}
+\newcommand{\cPublicationTwo}{City, State}
+\newcommand{\dPublicationTwo}{20YY}
+\newcommand{\ePublicationItemTwo}{9} % set to 1 to use items
+\newcommand{\ePublicationTwo}{Description}
+\newcommand{\fPublicationTwo}{9}
+\newcommand{\ePublicationItemsTwo}{
+	\cvitems[\fPublicationTwo]{item 1}{item 2}{item 3}{item 4}{item 5}
+}
+
+\newcommand{\PublicationThree}{9} % publication #3
+\newcommand{\aPublicationThree}{Publication 3}
+\newcommand{\bPublicationThree}{Publisher/institution}
+\newcommand{\cPublicationThree}{City, State}
+\newcommand{\dPublicationThree}{20YY}
+\newcommand{\ePublicationItemThree}{9}
+\newcommand{\ePublicationThree}{}
+\newcommand{\fPublicationThree}{9}
+\newcommand{\ePublicationItemsThree}{
+	\cvitems[\fPublicationThree]{item 1}{item 2}{}{}{}
+}
+
+\newcommand{\PublicationFour}{9} % publication #4
+\newcommand{\aPublicationFour}{Publication 4}
+\newcommand{\bPublicationFour}{Publisher/institution}
+\newcommand{\cPublicationFour}{City, State}
+\newcommand{\dPublicationFour}{20YY}
+\newcommand{\ePublicationItemFour}{1}
+\newcommand{\ePublicationFour}{A short bullet list}
+\newcommand{\fPublicationFour}{9}
+\newcommand{\ePublicationItemsFour}{
+	\cvitems[\fPublicationFour]{item 1}{item 2}{}{}{}
+}
+
+\newcommand{\PublicationFive}{9} % publication #5
+\newcommand{\aPublicationFive}{Publication 5}
+\newcommand{\bPublicationFive}{Publisher/institution}
+\newcommand{\cPublicationFive}{City, State}
+\newcommand{\dPublicationFive}{20YY}
+\newcommand{\ePublicationItemFive}{9}
+\newcommand{\ePublicationFive}{A lone abstract would also work.}
+\newcommand{\fPublicationFive}{9}
+\newcommand{\ePublicationItemsFive}{
+	\cvitems[\fPublicationFive]{}{}{}{}{}
+}
+
+% references chapter settings
+\newcommand{\WithReferences}{9} % set to 1 to include references chapter
+\newcommand{\References}{References} % chapter TITLE
+\newcommand{\ReferenceText}{Further references and supporting \\documentation available upon request} % text at bottom of references chapter
+
+\newcommand{\ReferenceOne}{1} % set to 1 to include reference entry
+\newcommand{\fReferenceOne}{9} % set to 1 to highlight reference, will appear with "Suggested:" tag
+\newcommand{\aReferenceOne}{ 
+	\cvref[\fReferenceOne]
+	{Judith Referee} % name of reference contact
+	{Company} % company
+	{mail@refer.ee} % full mail address of reference
+	{mail@referee.com} % text of mail address
+	{} % second line e.g. for long email addresses
+	{+42 123 45678} % phone number of reference
+	{Department, role} % role or other data of reference
+	{City, State} % location of reference 
+}
+
+\newcommand{\ReferenceTwo}{1} % reference #2
+\newcommand{\fReferenceTwo}{9}
+\newcommand{\aReferenceTwo}{ 
+	\cvref[\fReferenceTwo]
+	{Mark Reference}
+	{Microsoft Corporation}
+	{mark.reference@company.www}
+	{mark.reference@company.www}
+	{US ET time zone} % free line without symbol
+	{+1 234 567890} % phone number of reference
+	{ChatGPT commerce, former lead} % role or other data of reference
+	{Redmond, Washington (US)} % location of reference 
+}
+
+\newcommand{\ReferenceThree}{9} % reference #3
+\newcommand{\fReferenceThree}{9}
+\newcommand{\aReferenceThree}{ 
+	\cvref[\fReferenceThree]
+	{Monica Reference}
+	{}
+	{monica@reference.cv}
+	{monica@reference.cv}
+	{} % free line
+	{+1 111 222 33}
+	{HR department, former manager} % role or other data of reference
+	{} % location of reference 
+}
+
+\newcommand{\ReferenceFour}{9} % reference #4
+\newcommand{\fReferenceFour}{9}
+\newcommand{\aReferenceFour}{ 
+	\cvref[\fReferenceFour]
+	{Mark Reference}
+	{Microsoft Corporation}
+	{mark.reference@company.www}
+	{US ET time zone}
+	{+1 234 567890} % phone number of reference
+	{ChatGPT commerce, former head} % role or other data of reference
+	{Redmond, Washington (US)} % location of reference 
+}
+
+\newcommand{\ReferenceFive}{9} % reference #5
+\newcommand{\fReferenceFive}{9}
+\newcommand{\aReferenceFive}{ 
+	\cvref[\fReferenceFive]
+	{Mark Reference}
+	{Microsoft Corporation}
+	{mark.reference@company.www}
+	{US ET time zone}
+	{+1 234 567890} % phone number of reference
+	{ChatGPT commerce, former head} % role or other data of reference
+	{Redmond, Washington (US)} % location of reference 
+}
+
+% hard skills chapter settings
+\newcommand{\WithSkills}{1} % set to 1 to include hard skills chapter
+\newcommand{\HardSkills}{Skills} % chapter TITLE
+
+\newcommand{\SkillOne}{1} % set to 1 to include skill with scale
+\newcommand{\aSkillOne}{A hard skill} % skill name
+\newcommand{\bSkillOne}{4.5} % skill level from 1 to 5
+\newcommand{\fSkillOne}{9} % set to 1 to highlight skill
+
+\newcommand{\SkillTwo}{1} % skill #2
+\newcommand{\aSkillTwo}{For example}
+\newcommand{\bSkillTwo}{4}
+\newcommand{\fSkillTwo}{9}
+
+\newcommand{\SkillThree}{1} % skill #3
+\newcommand{\aSkillThree}{Design thinking}
+\newcommand{\bSkillThree}{3.5}
+\newcommand{\fSkillThree}{9}
+
+\newcommand{\SkillFour}{1} % skill #4
+\newcommand{\aSkillFour}{PCB design}
+\newcommand{\bSkillFour}{4}
+\newcommand{\fSkillFour}{9}
+
+\newcommand{\SkillFive}{1} % skill #5
+\newcommand{\aSkillFive}{Microsoft Office}
+\newcommand{\bSkillFive}{4.5}
+\newcommand{\fSkillFive}{9}
+
+\newcommand{\SkillSix}{9} % skill #6
+\newcommand{\aSkillSix}{Sikill six}
+\newcommand{\bSkillSix}{5}
+\newcommand{\fSkillSix}{9}
+
+\newcommand{\SkillSeven}{9} % skill #7
+\newcommand{\aSkillSeven}{Skill seven}
+\newcommand{\bSkillSeven}{3}
+\newcommand{\fSkillSeven}{9}
+
+\newcommand{\SkillEight}{9} % skill #8
+\newcommand{\aSkillEight}{Skill eight}
+\newcommand{\bSkillEight}{4.5}
+\newcommand{\fSkillEight}{9}
+
+\newcommand{\SkillNine}{9} % skill #9
+\newcommand{\aSkillNine}{Skill nine}
+\newcommand{\bSkillNine}{5}
+\newcommand{\fSkillNine}{9}
+
+\newcommand{\SkillTen}{9} % skill #10
+\newcommand{\aSkillTen}{\textcolor{Grey}{\textmd{\textsl{\Large \LaTeX}}}}
+\newcommand{\bSkillTen}{5}
+\newcommand{\fSkillTen}{9}
+
+% soft skills chapter settings
+\newcommand{\WithSoftSkills}{9} % set to 1 to include soft skills chapter
+\newcommand{\SoftSkills}{Soft skills} % chapter TITLE
+\newcommand{\SoftSkillsRated}{1} % set to 1 to use rated soft skills
+
+\newcommand{\SoftSkillOne}{1} % set to 1 to include skill as tag without scale
+\newcommand{\aSoftSkillOne}{Softskil1} % skill name, use urls with \href{http://link.com}{tag} for clickable tags
+%\newcommand{\bSoftSkillOne}{2.5} % add skill level from 1 to 5 if you change to \cvskill in _SoftSkills.tex
+\newcommand{\fSoftSkillOne}{9} % set to 1 to highlight soft skill
+
+\newcommand{\SoftSkillTwo}{1} % soft skill #2
+\newcommand{\aSoftSkillTwo}{Good at 2}
+%\newcommand{\bSoftSkillTwo}{5}
+\newcommand{\fSoftSkillTwo}{9}
+
+\newcommand{\SoftSkillThree}{1} % soft skill #3
+\newcommand{\aSoftSkillThree}{Take me for 3}
+%\newcommand{\bSoftSkillThree}{5}
+\newcommand{\fSoftSkillThree}{9}
+
+\newcommand{\SoftSkillFour}{1} % soft skill #4
+\newcommand{\aSoftSkillFour}{Problem solving}
+%\newcommand{\bSoftSkillFour}{5}
+\newcommand{\fSoftSkillFour}{9}
+
+\newcommand{\SoftSkillFive}{1} % soft skill #5
+\newcommand{\aSoftSkillFive}{Result orientated}
+%\newcommand{\bSoftSkillFive}{5}
+\newcommand{\fSoftSkillFive}{9}
+
+\newcommand{\SoftSkillSix}{9} % soft skill #6
+\newcommand{\aSoftSkillSix}{Respectful communication}
+\newcommand{\fSoftSkillSix}{9}
+
+\newcommand{\SoftSkillSeven}{9} % soft skill #7
+\newcommand{\aSoftSkillSeven}{Inclusive}
+\newcommand{\fSoftSkillSeven}{9}
+
+\newcommand{\SoftSkillEight}{9} % soft skill #8
+\newcommand{\aSoftSkillEight}{Teamwork}
+\newcommand{\fSoftSkillEight}{9}
+
+\newcommand{\SoftSkillNine}{9} % soft skill #9
+\newcommand{\aSoftSkillNine}{Fact-based decision making}
+\newcommand{\fSoftSkillNine}{9}
+
+\newcommand{\SoftSkillTen}{9} % soft skill #10
+\newcommand{\aSoftSkillTen}{Creativity}
+\newcommand{\fSoftSkillTen}{9}
+
+\newcommand{\SoftSkillEleven}{9} % soft skill #11
+\newcommand{\aSoftSkillEleven}{aSoftSkill}
+\newcommand{\fSoftSkillEleven}{9}
+
+\newcommand{\SoftSkillTwelve}{9} % soft skill #12
+\newcommand{\aSoftSkillTwelve}{SoftSkill}
+\newcommand{\fSoftSkillTwelve}{9}
+
+\newcommand{\SoftSkillThirteen}{9} % soft skill #13
+\newcommand{\aSoftSkillThirteen}{oftSkill}
+\newcommand{\fSoftSkillThirteen}{9}
+
+\newcommand{\SoftSkillFourteen}{9} % soft skill #14
+\newcommand{\aSoftSkillFourteen}{ftSkill}
+\newcommand{\fSoftSkillFourteen}{9}
+
+\newcommand{\SoftSkillFifteen}{9} % soft skill #15
+\newcommand{\aSoftSkillFifteen}{tSkill}
+\newcommand{\fSoftSkillFifteen}{9}
+
+% volunteering chapter settings
+\newcommand{\WithSocial}{9} % set to 1 to include volunteering chapter
+\newcommand{\Social}{Volunteering} % chapter TITLE
+
+\newcommand{\SocialOne}{1} % set to 1 to include volunteering entry
+\newcommand{\adSocialOne}{
+	\cvevent{My honorary post \hfill \small{\textbf{Volunteering}}}
+	{Subtitle if needed}
+	{Location}
+	{Mon 20YY -- now}
+}
+\newcommand{\eSocialItemOne}{1} % set to 1 to show items
+\newcommand{\eSocialOne}{Description if needed} % text (above items)
+\newcommand{\fSocialOne}{9} % set to 1..5 to highlight volunteering entry item
+\newcommand{\eSocialItemsOne}{\cvitems[\fSocialOne] % items{1}..{5}
+	{items available}
+	{}{}{}{}
+}
+
+\newcommand{\SocialTwo}{1} % volunteering #2
+\newcommand{\adSocialTwo}{\cvevent{Volunteering 2}
+{}
+{Location}
+{Time}
+}
+\newcommand{\eSocialItemTwo}{9}
+\newcommand{\eSocialTwo}{
+	Activity text
+}
+\newcommand{\fSocialTwo}{9}
+\newcommand{\eSocialItemsTwo}{
+	\cvitems[\fSocialTwo]{}{}{}{}{}
+}
+
+\newcommand{\SocialThree}{9} % volunteering #3
+\newcommand{\adSocialThree}{\cvevent{}
+{Volunteering 3 small title}
+{Location}
+{Time}}
+\newcommand{\eSocialItemThree}{1}
+\newcommand{\eSocialThree}{}
+\newcommand{\fSocialThree}{1}
+\newcommand{\eSocialItemsThree}{
+	\cvitems[\fSocialThree]
+	{activity item}
+	{}{}{}{}
+}
+
+\newcommand{\SocialFour}{9} % volunteering #4
+\newcommand{\adSocialFour}{\cvevent{Volunteering 4}
+{Volunteering 4 subtitle}
+{Location}
+{Oct 2013 -- Sep 2015}}
+\newcommand{\eSocialItemFour}{1}
+\newcommand{\eSocialFour}{}
+\newcommand{\fSocialFour}{9}
+\newcommand{\eSocialItemsFour}{
+	\cvitems[\fSocialFour]
+	{}{}{}{}{}}
+
+\newcommand{\SocialFive}{9} % volunteering #5
+\newcommand{\adSocialFive}{\cvevent{Volunteering 5}
+{Volunteering 5 subtitle}
+{everywhere}
+{always}}
+\newcommand{\eSocialItemFive}{1}
+\newcommand{\eSocialFive}{anything can help}
+\newcommand{\fSocialFive}{9}
+\newcommand{\eSocialItemsFive}{\cvitems[\fSocialFive]{Good deed 1}{}{}{}{}}
+
+% summary chapter settings
+\newcommand{\WithSummary}{9} % set to 1 to include summary chapter
+\newcommand{\Summary}{Summary} % chapter TITLE
+
+\newcommand{\aSummary}{ % summary text using \cvbox
+This is a short summary on why you are perfect for this position.\\
+		\smallskip
+		Useful for applications where no cover letter is required
+}
+\newcommand{\bSummary}{black} % summary text color
+\newcommand{\cSummary}{SymbolColor!10} % summary background fill color
+\newcommand{\dSummary}{0.9} % width in 0..1 \linewidth
+\newcommand{\eSummary}{center} % text alignment, options left, center, right, justify etc.
+
+% user chapter settings
+\newcommand{\WithUser}{9} % set to 1 to include user defined chapter
+\newcommand{\User}{My chapter} % chapter TITLE
+
+\newcommand{\UserOne}{1} % set to 1 to include user chapter cv element #1
+\newcommand{\aUserOne}{
+	% Adapted from @Jake's answer from http://tex.stackexchange.com/a/82729/226
+	% \wheelchart{outer radius}{inner radius}{
+		% comma-separated list of value/text width/color/detail}
+	\wheelchart{1.5cm}{0.5cm}{%
+		6/8em/accent!30/{Sleep, beautiful sleep},
+		3/8em/accent!40/Hopeful inventor by night,
+		8/8em/accent!60/Daytime job,
+		2/10em/accent/Sports and relaxation,
+		5/6em/accent!20/Spending time with family
+	}
+} % a custom user entry
+
+% Recipient information
+\newcommand{\RecipientName}{Sabrina Hiring} % name (e.g. "Sabrina Hiring")
+\newcommand{\Company}{Microsoft Corporation} % company (e.g. "Microsoft Corporation")
+\newcommand{\Subject}{Application for dream job 12345} % company (e.g. "Microsoft Corporation")
+\newcommand{\Greeting}{Dear} % greeting to use (e.g. "Dear")
+\newcommand{\Closer}{Kind Regards} % closer to use (e.g. "Kind Regards")
+\newcommand{\CompanyStreet}{1 Microsoft Way} % company's street address (e.g. "1 Microsoft Way")
+\newcommand{\CompanyCity}{Redmond} % ompany's city (e.g. "Redmond")
+\newcommand{\CompanyState}{WA} % company's state prefix (e.g. "WA")
+\newcommand{\CompanyZip}{98052} % company's zip code (e.g. "98052")
+
+

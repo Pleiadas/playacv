@@ -1,0 +1,46 @@
+\cvsetting{\WithHeader}{
+	% letter header
+	
+	% shaded header banner
+	\AddToShipoutPictureBG*{%
+		\color{headingrule}
+		\AtPageUpperLeft{\rule[-2cm]{\paperwidth}{.69cm}}
+	}
+	
+	\cvsetting{\HeaderWatermark}{ % center watermark
+		\begin{figure}[H] % add centered watermark with set width, position and transparency
+			\centering
+			\vspace{\eHeaderWatermark cm}
+			\transparent{\cHeaderWatermark}\hspace{\dHeaderWatermark cm}\includegraphics[width=\bHeaderWatermark cm]{\aHeaderWatermark}
+		\end{figure}
+		
+		\vspace{-\bHeaderWatermark cm}
+	}
+	
+	\begin{minipage}[t]{\HeaderWidthL \linewidth} % left minipage
+		\vspace{1cm}
+		\RecipientName\\
+		\Company\\
+		\CompanyStreet\\
+		\CompanyCity, \CompanyZip{} \CompanyState \\
+	\end{minipage}
+	%
+	\hfill
+	%
+	\begin{minipage}[t]{\HeaderWidthR \linewidth} % right minipage
+		\vspace{0.5cm}
+		\cvsetting{\HeaderPhotoR}{
+			\photoR{\bHeaderPhoto cm}{\aHeaderPhoto}
+		}
+		\textbf{\normalsize \myName}\\
+		\textsl{\myStreet\\
+			\myZIP{} \myCity\\
+			\myState}\\
+		\smallskip
+		\href{mailto:\myMail}{\faAt \myMail}\\
+		\href{tel:\myPhone}{\faPhone \myPhone}\\
+		\href{https://linkedin.com/in/\myLinkedin}{\faLinkedin \myLinkedin}
+	\end{minipage}
+	
+	\bigskip
+}

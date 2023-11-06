@@ -1,0 +1,59 @@
+\cvsetting{\WithCoverLetter}{ % set to 1 to include application letter
+	
+	% _letter
+	\newpage
+	% Header
+	\input{chap/_letterHeader}
+	%
+	% Opening block
+	{\cvsubsectionfont \Subject}\\
+	\bigskip
+	%
+	\input{chap/_abstract}
+	\vfill
+	% Dear ,
+	\Greeting\ \RecipientName,\\
+	%
+	\smallskip
+	% Body
+	{\justifying \cvsetting{\WithBody}{\Body}}
+	%
+	\vfill
+	%
+	% Closer and footer
+	\input{chap/_letterFooter}
+	%
+	\clearpage
+}
+
+% ONLY APPLICATION LETTER
+\cvsetting{\OnlyCoverLetter}{
+
+	% Header
+	\input{chap/_letterHeader}
+	%
+	\input{chap/_abstract}
+	%
+	% Opening block
+	{\cvsubsectionfont \Subject}\\
+	\bigskip
+	%
+	\vfill
+	% Dear ,
+	\Greeting\ \RecipientName,\\
+	%
+	\smallskip
+	% Body
+	{\justifying \cvsetting{\WithBody}{\Body}}
+	%
+	\vfill
+	%
+	% Closer and footer
+	\input{chap/_letterFooter}
+	% remove cv blocks
+	\renewcommand{\WithHeader}{9}
+	\renewcommand{\WithFooter}{9}
+	\renewcommand{\LeftColumn}{}
+	\renewcommand{\RightColumn}{}
+	%
+}

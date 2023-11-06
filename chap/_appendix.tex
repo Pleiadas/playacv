@@ -1,0 +1,36 @@
+\cvsetting{\WithAppendix}{ % set to 1 to include appendix pages
+	
+	% _appendix
+	\newpage
+	\cvsetting{\AppendixOne}{ % set to 1 to include this appendix
+		\newpage
+		\centering
+		\cvpdf{\dAppendixOne}{\aAppendixOne}{\bAppendixOne}{\cAppendixOne}
+			\label{appendix:\aAppendixOne}
+		\clearpage
+	}
+	\cvsetting{\AppendixTwo}{ %
+			\centering
+			\cvpdf{\dAppendixTwo}{\aAppendixTwo}{\bAppendixTwo}{\cAppendixTwo} % appendix #2
+			\label{appendix:\aAppendixTwo}
+		\clearpage
+	}
+	\cvsetting{\AppendixThree}{ %
+			\centering
+			\cvpdf{\dAppendixThree}{\aAppendixThree}{\bAppendixThree}{\cAppendixThree} % appendix #3
+			\label{appendix:\aAppendixThree}
+		\clearpage
+	}
+	\cvsetting{\AppendixFour}{ %
+			\centering
+			\cvpdf{\dAppendixFour}{\aAppendixFour}{\bAppendixFour}{\cAppendixFour} % appendix #4
+			\label{appendix:\aAppendixFour}
+		\clearpage
+	}
+	\cvsetting{\AppendixFive}{ %
+			\centering
+			\cvpdf{\dAppendixFive}{\aAppendixFive}{\bAppendixFive}{\cAppendixFive} % appendix #5
+			\label{appendix:\aAppendixFive}
+		\clearpage
+	}
+}
