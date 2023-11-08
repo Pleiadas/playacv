@@ -1,0 +1,6 @@
+*.aux
+*.log
+*.out
+template.pdf
+*.xmpi
+*.gz

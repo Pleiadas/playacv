@@ -531,4 +531,3 @@
 \color{body}
 \raggedright
 }
-
