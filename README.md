@@ -136,26 +136,26 @@ In sample.pdf you can see the full display of options available in fictionary r√
 	
 	\renewcommand{\Body}{
 		{\small
-		\begin{minipage}[!t]{0.725\linewidth}
-			{\lipsum[1]}
-		\end{minipage}
-		\hfill
-		\begin{minipage}[!t]{0.25\linewidth}
-			\cvbox[flush left] % cvbox text alignment
-			{\textbf{Matching skills:}\\
+			\begin{minipage}[!t]{0.725\linewidth}
+				{\lipsum[1]}
+			\end{minipage}
+			\hfill
+			\begin{minipage}[!t]{0.25\linewidth}
+				\cvbox[flush left] % cvbox text alignment
+				{\textbf{Matching skills:}\\
+					\medskip
+					\cvskill{I can do this\\}{5}
+					\cvskill[1]{My passion\\}{4}
+					\bigskip
+					\cvtag{This soft skill {\color{green}\faCheck}}\\
+					\cvtag[1]{Perfect soft skill {\color{HighlightColor}\faGift}}\\
+					\cvtag{Teamwork {\color{RuleColor}\faUsers}}\\
+				} % cvbox text
+				{black} % cvbox text colour
+				{LightGrey!5} % cvbox fill colour
+				{.98} % cvbox width
+			\end{minipage}
 			\medskip
-			\cvskill{I can do this\\}{5}
-			\cvskill[1]{My passion\\}{4}
-			\bigskip
-			\cvtag{This soft skill {\color{green}\faCheck}}\\
-			\cvtag[1]{Perfect soft skill {\color{HighlightColor}\faGift}}\\
-			\cvtag{Teamwork {\color{RuleColor}\faUsers}}\\
-			} % cvbox text
-			{black} % cvbox text colour
-			{LightGrey!5} % cvbox fill colour
-			{.98} % cvbox width
-		\end{minipage}
-		\medskip
 		}
 		\begin{itemize}
 			\item you can change the layout and looks of your letter and cv easily with \textsl{PlayaCV}
@@ -190,7 +190,7 @@ In sample.pdf you can see the full display of options available in fictionary r√
 	\renewcommand{\dHeaderWatermark}{0}
 	\renewcommand{\FooterWatermark}{1}
 	\renewcommand{\cFooterWatermark}{.69}
-
+	
 	
 	%
 	\input{chap/_cvHeader}
@@ -233,16 +233,23 @@ In sample.pdf you can see the full display of options available in fictionary r√
 	%%% Also, you can combine it with a \MySetting = 1 to print custom content to the cv only if needed, using 
 	%%% \newcommand{\MySetting}{1} % before e.g. a shorter new text for your summary in the Summary chapter, with
 	%%% \cvsetting{\MySetting}{
-	%%% \renewcommand{\aSummary}{My shorter summary text}
-        %%% }
+		%%% \renewcommand{\aSummary}{My shorter summary text}
+		%%% }
 	
 	%% Choose chapters for this application
-	\renewcommand{\WithSkills}{1}
 	\renewcommand{\WithAwards}{1}
+	\renewcommand{\WithCertifications}{1}
+	\renewcommand{\WithHobbies}{1}
+	\renewcommand{\WithPersonalInfo}{1}
+	\renewcommand{\WithProjects}{1}
+	\renewcommand{\WithPublications}{1}
+	\renewcommand{\WithReferences}{1}
+	\renewcommand{\WithSkills}{1}
 	\renewcommand{\WithSoftSkills}{1}
 	\renewcommand{\WithSummary}{1}
-	\renewcommand{\WithPersonalInfo}{1}
-	\renewcommand{\WithHobbies}{1}
+	\renewcommand{\WithTrainings}{1}
+	\renewcommand{\WithSocial}{1}
+	\renewcommand{\WithUser}{1}
 	
 	% change summary
 	\renewcommand{\aSummary}{\textsl{ \bfseries This is a short summary on why you are perfect for this position.\\
@@ -291,9 +298,9 @@ In sample.pdf you can see the full display of options available in fictionary r√
 	\renewcommand{\SoftSkillSix}{1}
 	\renewcommand{\aSoftSkillSix}{for hirers}
 	
-	\renewcommand{\SocialOne}{9}
+	\renewcommand{\SocialOne}{1}
 	\renewcommand{\SocialTwo}{9}
-	\renewcommand{\SocialThree}{9}
+	\renewcommand{\SocialThree}{1}
 	\renewcommand{\SocialFour}{9}
 	\renewcommand{\SocialFive}{1}
 	
@@ -308,21 +315,14 @@ In sample.pdf you can see the full display of options available in fictionary r√
 	
 	%% Change user specific content settings e.g.
 	\newcommand{\PhD}{9}
-
+	
 	%% Change experiences content
-	\renewcommand{\dExperienceFour}{5 years}
 	
 	% exp 1
-	%{Usability and acceptance testing for very diverse users}
-	%{Communication and HR process automation with Power Automate}
-	%{Documentation and user training about IT components}
-	%{Digital user engagement and adoption promotion}
-	\renewcommand{\eExperienceItemsOne}{\cvitems[2] % highlight option with fExp.. = 1..5 or 9
+	\renewcommand{\eExperienceItemsOne}{\cvitems[2] % <- highlight options with \fExp.. = 1..5 or 9
 		{Doing this and that} % items {1}..{5}
 		{Highlighted task}
 		{Also relevant for the application}{}{}}
-	
-	\renewcommand{\bExperienceOne}{\vspace{-.5cm}}
 	
 	% exp 2
 	%{Minor reviewing of papers for conferences on photonic technologies}
@@ -353,7 +353,7 @@ In sample.pdf you can see the full display of options available in fictionary r√
 	}
 	
 	\renewcommand{\EducationTwo}{1} % education #2
-
+	
 	\renewcommand{\EducationThree}{1} % education #3
 	\renewcommand{\aEducationThree}{School of life}
 	\renewcommand{\bEducationThree}{Lifetime learner}
@@ -364,7 +364,7 @@ In sample.pdf you can see the full display of options available in fictionary r√
 	\renewcommand{\fEducationThree}{9}
 	\renewcommand{\eEducationItemsThree}{\cvitems[\fEducationThree]{Everyone can teach you something}{}{}{}{}}
 	
-	\renewcommand{\ReferenceOne}{9}
+	\renewcommand{\ReferenceOne}{1}
 	\renewcommand{\fReferenceTwo}{1}
 	
 	% highlights or other changes for this position, copy paste to bottom to create semantics short selections %%%
@@ -375,7 +375,7 @@ In sample.pdf you can see the full display of options available in fictionary r√
 	\renewcommand{\fSkillTwo}{1}
 	\renewcommand{\fSoftSkillThree}{1}
 	\renewcommand{\fSocialThree}{9}
-	\renewcommand{\fAwardTwo}{9}
+	\renewcommand{\fAwardTwo}{1}
 	\renewcommand{\fReferenceOne}{9}
 	\renewcommand{\fEducationTwo}{9}
 	%\renewcommand{\eExperienceItemsTwo}{\cvitems{}{}{}{}}
@@ -397,8 +397,8 @@ In sample.pdf you can see the full display of options available in fictionary r√
 	
 	% setting example
 	\cvsetting{\PhD}{
-	\renewcommand{\WithPublications}{1}
-	\renewcommand{\fPublicationTwo}{1}
+		\renewcommand{\WithPublications}{1}
+		\renewcommand{\fPublicationTwo}{1}
 	}
 	
 	% setting to shrink cv to one page
