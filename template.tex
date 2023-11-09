@@ -29,7 +29,7 @@
 	% optional pages (9,9,9 = print only CV)                                                          #(1)
 	\renewcommand{\OnlyCoverLetter}{9} % set to 1 to print only letter to PDF
 	\renewcommand{\WithCoverLetter}{1} % set to 1 to print letter + CV to PDF
-	\renewcommand{\WithAppendix}{1} % set to 1 to print appendix pages to PDF
+	\renewcommand{\WithAppendix}{9} % set to 1 to print appendix pages to PDF
 	
 	%%% user specific content settings 
 	\newcommand{\PhD}{9} % example settings defined below for changing to academia applications e.g. education on top
@@ -309,6 +309,8 @@
 	
 	% End of application settings here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%
+	\cvsetting[
+	%
 	%% cv body start
 	%
 	% left/right column width ratio, 0.5 = centred
@@ -332,11 +334,12 @@
 		%
 		\RightColumn
 		%
-	%% cv body end 
+		%% cv body end 
 	\end{paracol}
 	% 
 	\input{chap/_cvFooter}
-	
+	]{\OnlyCoverLetter}{} % exclude cv if only letter to be printed
+	%
 	% change the appendix page layout here if you need to
 	\newgeometry{left=1cm,right=1.3cm,top=1.3cm,bottom=1.5cm,columnsep=0.3cm}
 	%
