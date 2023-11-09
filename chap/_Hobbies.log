@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.4)  6 NOV 2023 02:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 23.10.12) (preloaded format=pdflatex 2023.11.4)  9 NOV 2023 01:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -55,8 +55,8 @@ You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 ! Undefined control sequence.
-l.6 		\justifying
-                 
+l.7 \cvsetting
+              {\HobbyOne}{\cvtag{\aHobbyOne}}\hfill\cvsetting{\HobbyTwo}{\cv...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -64,8 +64,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.7 		\cvsetting
-                {\HobbyOne}{\cvtag{\aHobbyOne}}\cvsetting{\HobbyTwo}{\cvtag{...
+l.7 \cvsetting{\HobbyOne
+                        }{\cvtag{\aHobbyOne}}\hfill\cvsetting{\HobbyTwo}{\cv...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -73,8 +73,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.7 		\cvsetting{\HobbyOne
-                          }{\cvtag{\aHobbyOne}}\cvsetting{\HobbyTwo}{\cvtag{...
+l.7 \cvsetting{\HobbyOne}{\cvtag
+                                {\aHobbyOne}}\hfill\cvsetting{\HobbyTwo}{\cv...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -82,8 +82,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.7 		\cvsetting{\HobbyOne}{\cvtag
-                                  {\aHobbyOne}}\cvsetting{\HobbyTwo}{\cvtag{...
+l.7 \cvsetting{\HobbyOne}{\cvtag{\aHobbyOne
+                                           }}\hfill\cvsetting{\HobbyTwo}{\cv...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -91,16 +91,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.7 		\cvsetting{\HobbyOne}{\cvtag{\aHobbyOne
-                                             }}\cvsetting{\HobbyTwo}{\cvtag{...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Undefined control sequence.
-l.7 ...ng{\HobbyOne}{\cvtag{\aHobbyOne}}\cvsetting
+l.7 ...bbyOne}{\cvtag{\aHobbyOne}}\hfill\cvsetting
                                                   {\HobbyTwo}{\cvtag{\aHobby...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -109,8 +100,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.7 ...ne}{\cvtag{\aHobbyOne}}\cvsetting{\HobbyTwo
-                                                  }{\cvtag{\aHobbyTwo}}\cvse...
+l.7 ...vtag{\aHobbyOne}}\hfill\cvsetting{\HobbyTwo
+                                                  }{\cvtag{\aHobbyTwo}}\hfil...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -118,8 +109,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.7 ...ag{\aHobbyOne}}\cvsetting{\HobbyTwo}{\cvtag
-                                                  {\aHobbyTwo}}\cvsetting{\H...
+l.7 ...obbyOne}}\hfill\cvsetting{\HobbyTwo}{\cvtag
+                                                  {\aHobbyTwo}}\hfill\cvsett...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -127,8 +118,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.7 ...ne}}\cvsetting{\HobbyTwo}{\cvtag{\aHobbyTwo
-                                                  }}\cvsetting{\HobbyThree}{...
+l.7 ...fill\cvsetting{\HobbyTwo}{\cvtag{\aHobbyTwo
+                                                  }}\hfill\cvsetting{\HobbyT...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -136,7 +127,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.7 ...ng{\HobbyTwo}{\cvtag{\aHobbyTwo}}\cvsetting
+l.7 ...bbyTwo}{\cvtag{\aHobbyTwo}}\hfill\cvsetting
                                                   {\HobbyThree}{\cvtag{\aHob...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -145,8 +136,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.7 ...}{\cvtag{\aHobbyTwo}}\cvsetting{\HobbyThree
-                                                  }{\cvtag{\aHobbyThree}}
+l.7 ...ag{\aHobbyTwo}}\hfill\cvsetting{\HobbyThree
+                                                  }{\cvtag{\aHobbyThree}}\hf...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -154,8 +145,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.7 ...{\aHobbyTwo}}\cvsetting{\HobbyThree}{\cvtag
-                                                  {\aHobbyThree}}
+l.7 ...byTwo}}\hfill\cvsetting{\HobbyThree}{\cvtag
+                                                  {\aHobbyThree}}\hfill\cvse...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -164,7 +155,7 @@ and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
 l.7 ...\cvsetting{\HobbyThree}{\cvtag{\aHobbyThree
-                                                  }}
+                                                  }}\hfill\cvsetting{\HobbyF...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -172,8 +163,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.8 		\cvsetting
-                {\HobbyFour}{\cvtag{\aHobbyFour}}\cvsetting{\HobbyFive}{\cvt...
+l.7 ...hree}{\cvtag{\aHobbyThree}}\hfill\cvsetting
+                                                  {\HobbyFour}{\cvtag{\aHobb...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -181,8 +172,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.8 		\cvsetting{\HobbyFour
-                           }{\cvtag{\aHobbyFour}}\cvsetting{\HobbyFive}{\cvt...
+l.7 ...g{\aHobbyThree}}\hfill\cvsetting{\HobbyFour
+                                                  }{\cvtag{\aHobbyFour}}\hfi...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -190,8 +181,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.8 		\cvsetting{\HobbyFour}{\cvtag
-                                   {\aHobbyFour}}\cvsetting{\HobbyFive}{\cvt...
+l.7 ...yThree}}\hfill\cvsetting{\HobbyFour}{\cvtag
+                                                  {\aHobbyFour}}\hfill\cvset...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -199,8 +190,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.8 		\cvsetting{\HobbyFour}{\cvtag{\aHobbyFour
-                                               }}\cvsetting{\HobbyFive}{\cvt...
+l.7 ...ll\cvsetting{\HobbyFour}{\cvtag{\aHobbyFour
+                                                  }}\hfill\cvsetting{\HobbyF...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -208,7 +199,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.8 ...{\HobbyFour}{\cvtag{\aHobbyFour}}\cvsetting
+l.7 ...yFour}{\cvtag{\aHobbyFour}}\hfill\cvsetting
                                                   {\HobbyFive}{\cvtag{\aHobb...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -217,8 +208,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.8 ...}{\cvtag{\aHobbyFour}}\cvsetting{\HobbyFive
-                                                  }{\cvtag{\aHobbyFive}}\cvs...
+l.7 ...ag{\aHobbyFour}}\hfill\cvsetting{\HobbyFive
+                                                  }{\cvtag{\aHobbyFive}}\hfi...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -226,8 +217,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.8 ...{\aHobbyFour}}\cvsetting{\HobbyFive}{\cvtag
-                                                  {\aHobbyFive}}\cvsetting{\...
+l.7 ...byFour}}\hfill\cvsetting{\HobbyFive}{\cvtag
+                                                  {\aHobbyFive}}\hfill\cvset...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -235,8 +226,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.8 ...}}\cvsetting{\HobbyFive}{\cvtag{\aHobbyFive
-                                                  }}\cvsetting{\HobbySix}{\c...
+l.7 ...ll\cvsetting{\HobbyFive}{\cvtag{\aHobbyFive
+                                                  }}\hfill\cvsetting{\HobbyS...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -244,7 +235,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.8 ...{\HobbyFive}{\cvtag{\aHobbyFive}}\cvsetting
+l.7 ...yFive}{\cvtag{\aHobbyFive}}\hfill\cvsetting
                                                   {\HobbySix}{\cvtag{\aHobby...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -253,8 +244,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.8 ...e}{\cvtag{\aHobbyFive}}\cvsetting{\HobbySix
-                                                  }{\cvtag{\aHobbySix}}
+l.7 ...tag{\aHobbyFive}}\hfill\cvsetting{\HobbySix
+                                                  }{\cvtag{\aHobbySix}}\hfil...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -262,8 +253,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.8 ...g{\aHobbyFive}}\cvsetting{\HobbySix}{\cvtag
-                                                  {\aHobbySix}}
+l.7 ...bbyFive}}\hfill\cvsetting{\HobbySix}{\cvtag
+                                                  {\aHobbySix}}\hfill\cvsett...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -271,8 +262,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.8 ...ve}}\cvsetting{\HobbySix}{\cvtag{\aHobbySix
-                                                  }}
+l.7 ...fill\cvsetting{\HobbySix}{\cvtag{\aHobbySix
+                                                  }}\hfill\cvsetting{\HobbyS...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -280,8 +271,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.9 		\cvsetting
-                {\HobbySeven}{\cvtag{\aHobbySeven}}\cvsetting{\HobbyEight}{\...
+l.7 ...bbySix}{\cvtag{\aHobbySix}}\hfill\cvsetting
+                                                  {\HobbySeven}{\cvtag{\aHob...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -289,8 +280,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.9 		\cvsetting{\HobbySeven
-                            }{\cvtag{\aHobbySeven}}\cvsetting{\HobbyEight}{\...
+l.7 ...ag{\aHobbySix}}\hfill\cvsetting{\HobbySeven
+                                                  }{\cvtag{\aHobbySeven}}\hf...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -298,8 +289,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.9 		\cvsetting{\HobbySeven}{\cvtag
-                                    {\aHobbySeven}}\cvsetting{\HobbyEight}{\...
+l.7 ...bySix}}\hfill\cvsetting{\HobbySeven}{\cvtag
+                                                  {\aHobbySeven}}\hfill\cvse...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -307,8 +298,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.9 		\cvsetting{\HobbySeven}{\cvtag{\aHobbySeven
-                                                 }}\cvsetting{\HobbyEight}{\...
+l.7 ...\cvsetting{\HobbySeven}{\cvtag{\aHobbySeven
+                                                  }}\hfill\cvsetting{\HobbyE...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -316,7 +307,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.9 ...HobbySeven}{\cvtag{\aHobbySeven}}\cvsetting
+l.7 ...even}{\cvtag{\aHobbySeven}}\hfill\cvsetting
                                                   {\HobbyEight}{\cvtag{\aHob...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -325,8 +316,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.9 ...\cvtag{\aHobbySeven}}\cvsetting{\HobbyEight
-                                                  }{\cvtag{\aHobbyEight}}\cv...
+l.7 ...{\aHobbySeven}}\hfill\cvsetting{\HobbyEight
+                                                  }{\cvtag{\aHobbyEight}}\hf...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -334,8 +325,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.9 ...aHobbySeven}}\cvsetting{\HobbyEight}{\cvtag
-                                                  {\aHobbyEight}}\cvsetting{...
+l.7 ...Seven}}\hfill\cvsetting{\HobbyEight}{\cvtag
+                                                  {\aHobbyEight}}\hfill\cvse...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -343,8 +334,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.9 ...\cvsetting{\HobbyEight}{\cvtag{\aHobbyEight
-                                                  }}\cvsetting{\HobbyNine}{\...
+l.7 ...\cvsetting{\HobbyEight}{\cvtag{\aHobbyEight
+                                                  }}\hfill\cvsetting{\HobbyN...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -352,7 +343,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.9 ...HobbyEight}{\cvtag{\aHobbyEight}}\cvsetting
+l.7 ...ight}{\cvtag{\aHobbyEight}}\hfill\cvsetting
                                                   {\HobbyNine}{\cvtag{\aHobb...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -361,8 +352,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.9 ...{\cvtag{\aHobbyEight}}\cvsetting{\HobbyNine
-                                                  }{\cvtag{\aHobbyNine}}
+l.7 ...g{\aHobbyEight}}\hfill\cvsetting{\HobbyNine
+                                                  }{\cvtag{\aHobbyNine}}\hfi...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -370,8 +361,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.9 ...\aHobbyEight}}\cvsetting{\HobbyNine}{\cvtag
-                                                  {\aHobbyNine}}
+l.7 ...yEight}}\hfill\cvsetting{\HobbyNine}{\cvtag
+                                                  {\aHobbyNine}}\hfill\cvset...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -379,8 +370,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.9 ...}}\cvsetting{\HobbyNine}{\cvtag{\aHobbyNine
-                                                  }}
+l.7 ...ll\cvsetting{\HobbyNine}{\cvtag{\aHobbyNine
+                                                  }}\hfill\cvsetting{\HobbyT...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -388,8 +379,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.10 		\cvsetting
-                 {\HobbyTen}{\cvtag{\aHobbyTen}}\cvsetting{\HobbyEleven}{\cv...
+l.7 ...yNine}{\cvtag{\aHobbyNine}}\hfill\cvsetting
+                                                  {\HobbyTen}{\cvtag{\aHobby...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -397,8 +388,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.10 		\cvsetting{\HobbyTen
-                           }{\cvtag{\aHobbyTen}}\cvsetting{\HobbyEleven}{\cv...
+l.7 ...tag{\aHobbyNine}}\hfill\cvsetting{\HobbyTen
+                                                  }{\cvtag{\aHobbyTen}}\hfil...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -406,8 +397,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.10 		\cvsetting{\HobbyTen}{\cvtag
-                                   {\aHobbyTen}}\cvsetting{\HobbyEleven}{\cv...
+l.7 ...bbyNine}}\hfill\cvsetting{\HobbyTen}{\cvtag
+                                                  {\aHobbyTen}}\hfill\cvsett...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -415,8 +406,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.10 		\cvsetting{\HobbyTen}{\cvtag{\aHobbyTen
-                                              }}\cvsetting{\HobbyEleven}{\cv...
+l.7 ...fill\cvsetting{\HobbyTen}{\cvtag{\aHobbyTen
+                                                  }}\hfill\cvsetting{\HobbyE...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -424,7 +415,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.10 ...g{\HobbyTen}{\cvtag{\aHobbyTen}}\cvsetting
+l.7 ...bbyTen}{\cvtag{\aHobbyTen}}\hfill\cvsetting
                                                   {\HobbyEleven}{\cvtag{\aHo...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -433,8 +424,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.10 ...\cvtag{\aHobbyTen}}\cvsetting{\HobbyEleven
-                                                  }{\cvtag{\aHobbyEleven}}\c...
+l.7 ...g{\aHobbyTen}}\hfill\cvsetting{\HobbyEleven
+                                                  }{\cvtag{\aHobbyEleven}}\h...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -442,8 +433,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.10 ...aHobbyTen}}\cvsetting{\HobbyEleven}{\cvtag
-                                                  {\aHobbyEleven}}\cvsetting...
+l.7 ...yTen}}\hfill\cvsetting{\HobbyEleven}{\cvtag
+                                                  {\aHobbyEleven}}\hfill\cvs...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -451,8 +442,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.10 ...setting{\HobbyEleven}{\cvtag{\aHobbyEleven
-                                                  }}\cvsetting{\HobbyTwelve}...
+l.7 ...vsetting{\HobbyEleven}{\cvtag{\aHobbyEleven
+                                                  }}\hfill\cvsetting{\HobbyT...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -460,7 +451,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.10 ...byEleven}{\cvtag{\aHobbyEleven}}\cvsetting
+l.7 ...ven}{\cvtag{\aHobbyEleven}}\hfill\cvsetting
                                                   {\HobbyTwelve}{\cvtag{\aHo...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -469,8 +460,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.10 ...tag{\aHobbyEleven}}\cvsetting{\HobbyTwelve
-                                                  }{\cvtag{\aHobbyTwelve}}
+l.7 ...aHobbyEleven}}\hfill\cvsetting{\HobbyTwelve
+                                                  }{\cvtag{\aHobbyTwelve}}\h...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -478,8 +469,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.10 ...bbyEleven}}\cvsetting{\HobbyTwelve}{\cvtag
-                                                  {\aHobbyTwelve}}
+l.7 ...even}}\hfill\cvsetting{\HobbyTwelve}{\cvtag
+                                                  {\aHobbyTwelve}}\hfill\cvs...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -487,8 +478,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.10 ...setting{\HobbyTwelve}{\cvtag{\aHobbyTwelve
-                                                  }}
+l.7 ...vsetting{\HobbyTwelve}{\cvtag{\aHobbyTwelve
+                                                  }}\hfill\cvsetting{\HobbyT...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -496,8 +487,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.11 		\cvsetting
-                 {\HobbyThirteen}{\cvtag{\aHobbyThirteen}}\cvsetting{\HobbyF...
+l.7 ...lve}{\cvtag{\aHobbyTwelve}}\hfill\cvsetting
+                                                  {\HobbyThirteen}{\cvtag{\a...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -505,8 +496,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.11 		\cvsetting{\HobbyThirteen
-                                }{\cvtag{\aHobbyThirteen}}\cvsetting{\HobbyF...
+l.7 ...obbyTwelve}}\hfill\cvsetting{\HobbyThirteen
+                                                  }{\cvtag{\aHobbyThirteen}}...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -514,8 +505,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.11 		\cvsetting{\HobbyThirteen}{\cvtag
-                                        {\aHobbyThirteen}}\cvsetting{\HobbyF...
+l.7 ...ve}}\hfill\cvsetting{\HobbyThirteen}{\cvtag
+                                                  {\aHobbyThirteen}}\hfill\c...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -523,8 +514,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.11 ...ing{\HobbyThirteen}{\cvtag{\aHobbyThirteen
-                                                  }}\cvsetting{\HobbyFourtee...
+l.7 ...ting{\HobbyThirteen}{\cvtag{\aHobbyThirteen
+                                                  }}\hfill\cvsetting{\HobbyF...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -532,7 +523,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.11 ...irteen}{\cvtag{\aHobbyThirteen}}\cvsetting
+l.7 ...n}{\cvtag{\aHobbyThirteen}}\hfill\cvsetting
                                                   {\HobbyFourteen}{\cvtag{\a...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -541,7 +532,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.11 ...\aHobbyThirteen}}\cvsetting{\HobbyFourteen
+l.7 ...byThirteen}}\hfill\cvsetting{\HobbyFourteen
                                                   }{\cvtag{\aHobbyFourteen}}...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -550,8 +541,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.11 ...hirteen}}\cvsetting{\HobbyFourteen}{\cvtag
-                                                  {\aHobbyFourteen}}\cvsetti...
+l.7 ...en}}\hfill\cvsetting{\HobbyFourteen}{\cvtag
+                                                  {\aHobbyFourteen}}\hfill\c...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -559,8 +550,8 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.11 ...ing{\HobbyFourteen}{\cvtag{\aHobbyFourteen
-                                                  }}\cvsetting{\HobbyFifteen...
+l.7 ...ting{\HobbyFourteen}{\cvtag{\aHobbyFourteen
+                                                  }}\hfill\cvsetting{\HobbyF...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -568,7 +559,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.11 ...urteen}{\cvtag{\aHobbyFourteen}}\cvsetting
+l.7 ...n}{\cvtag{\aHobbyFourteen}}\hfill\cvsetting
                                                   {\HobbyFifteen}{\cvtag{\aH...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -577,7 +568,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.11 ...{\aHobbyFourteen}}\cvsetting{\HobbyFifteen
+l.7 ...bbyFourteen}}\hfill\cvsetting{\HobbyFifteen
                                                   }{\cvtag{\aHobbyFifteen}}\par
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -586,7 +577,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.11 ...Fourteen}}\cvsetting{\HobbyFifteen}{\cvtag
+l.7 ...een}}\hfill\cvsetting{\HobbyFifteen}{\cvtag
                                                   {\aHobbyFifteen}}\par
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -595,7 +586,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.11 ...tting{\HobbyFifteen}{\cvtag{\aHobbyFifteen
+l.7 ...etting{\HobbyFifteen}{\cvtag{\aHobbyFifteen
                                                   }}\par
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -604,14 +595,9 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 12.
+(Font)              <7> on input line 8.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 12.
-
-Overfull \hbox (20.0pt too wide) in paragraph at lines 5--13
-[]$[]$ 
- []
-
+(Font)              <5> on input line 8.
 )
 ! Emergency stop.
 <*> ./_Hobbies.tex
@@ -621,10 +607,10 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 5--13
  
 Here is how much of TeX's memory you used:
  22 strings out of 474718
- 517 string characters out of 5746569
+ 525 string characters out of 5746569
  1923036 words of memory out of 5000000
  22176 multiletter control sequences out of 15000+600000
  558069 words of font info for 36 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 20i,2n,22p,174b,90s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 20i,2n,22p,811b,90s stack positions out of 10000i,1000n,20000p,200000b,200000s
 !  ==> Fatal error occurred, no output PDF file produced!

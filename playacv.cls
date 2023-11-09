@@ -306,8 +306,8 @@
 \ifstrequal{#2}{}{}{
 	\textbf{#2}\par
 	\smallskip}
-\ifstrequal{#4}{}{}{{\small\makebox[0.5\linewidth][l]{\faMapMarker~#3}}}%
-\ifstrequal{#3}{}{}{{\small\makebox[0.5\linewidth][r]{\faCalendar~#4}}}\par
+\ifstrequal{#4}{}{}{{\small\makebox[0.5\linewidth][l]{\faMapMarker #3}}}%
+\ifstrequal{#3}{}{}{{\small\makebox[0.5\linewidth][r]{\faCalendar #4}}}\par
 \medskip\normalsize
 }
 
@@ -343,17 +343,22 @@
 \newcommand{\cventry}[5][9]{%
 \ifnum #1=1 \textbf{#2} \else #2 \fi \hfill {\small \textbf{#3}}\par
 \smallskip
-{\small \textsl{#4} \hfill #5}\par
+{\small #4 \hfill #5}\par
 \medskip
 }
-
+\newlength{\achievementwidth}
 %% cvachievement with highlight option
 \newcommand{\cvachievement}[4][9]{%
+\setlength{\achievementwidth}{\columnwidth}
+\addtolength{\achievementwidth}{-2em}
 \smallskip
-\begin{tabularx}{\linewidth}{@{}p{2em} @{\hspace{1ex}} >{\raggedright\arraybackslash}X@{}}
-	\multirow{2}{*}{\Large \ifnum #1=1 \color{headingrule} \else \color{accent} \fi #2} & \bfseries\ifnum #1=1 \color{highlight} \fi {#3}\\
-	& #4
-\end{tabularx}%
+\begin{minipage}[c]{2 em}
+{\Large \ifnum #1=1 \color{headingrule} \else \color{accent} \fi #2}
+\end{minipage}
+\begin{minipage}[c]{\achievementwidth}
+{\bfseries \ifnum #1=1 \color{highlight} \fi {#3}}\par
+#4\par
+\end{minipage}
 \smallskip
 }
 

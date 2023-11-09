@@ -1,8 +1,8 @@
 % template.tex simple cv document file template for playacv v1.0
 
-%%% Remove the "normalphoto" option if you want an image cropped to a circle instead of a square in the header
-% \documentclass[10pt,a4paper,withhyper]{playacv} % or add document options, e.g. withhyper for hidden urls
-\documentclass[11pt, a4paper, normalphoto, withhyper, ragged2e]{playacv}
+%%% Add the "normalphoto" option if you want a square image in the header instead of cropped to a circle 
+% \documentclass[10pt,a4paper,withhyper,normalphoto,ragged2e]{playacv} % also options, e.g. withhyper for hidden urls
+\documentclass[11pt, a4paper, withhyper, ragged2e]{playacv}
 
 % your additional packages
 \usepackage{lipsum}
@@ -24,7 +24,7 @@
 	\newcommand{\OnePager}{9} % set to 1 to use your one page cv layout, defined below at the end of the settings
 	
 	% change the letter page layout if you need to
-	\newgeometry{left=1.5cm,right=2cm,top=1.5cm,bottom=1.5cm,columnsep=0.3cm}
+	\newgeometry{left=1.5cm,right=2cm,top=1.3cm,bottom=1.5cm,columnsep=0.3cm}
 	
 	% optional pages (9,9,9 = print only CV)                                                          #(1)
 	\renewcommand{\OnlyCoverLetter}{9} % set to 1 to print only letter to PDF
@@ -103,13 +103,15 @@
 	\renewcommand{\HeaderWatermark}{9}
 	\renewcommand{\bHeaderWatermark}{2}
 	\renewcommand{\cHeaderWatermark}{0.7}
+	
 	\renewcommand{\FooterWatermark}{1}
+	\renewcommand{\FooterPhotoL}{1}
 	
 	%
 	\input{chap/_cvHeader}
 	%
 	
-	%%% choose what to include and in which order
+	%%% change chapter ordering for this application, you can always include or exclude them later with \WithChapter
 	% chapters to be displayed on the left side, from top to bottom
 	\renewcommand{\LeftColumn}{
 		\input{chap/_Summary}
@@ -336,7 +338,7 @@
 	\input{chap/_cvFooter}
 	
 	% change the appendix page layout here if you need to
-	\newgeometry{left=1cm,right=1.3cm,top=1.5cm,bottom=1.5cm,columnsep=0.3cm}
+	\newgeometry{left=1cm,right=1.3cm,top=1.3cm,bottom=1.5cm,columnsep=0.3cm}
 	%
 	% input appendix
 	\input{chap/_Appendix}
