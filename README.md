@@ -1,6 +1,6 @@
 # PlayaCV, Plug and play LaTeX Application class
 v1.3 (15 Nov 2023), by Martin Knöfel (martin.knoefel@gmail.com)
-* added forms using \RequirePackage[pdftex]{hyperref}
+* added forms using `\RequirePackage[pdftex]{hyperref}`
 * provides 
  * `\formfield`,`\labeledfield`,`\centefield`,`\rightfield` for aligned one line form fields
  * `\boxfield` and `\linefield` for multiple line form fields
