@@ -27,37 +27,6 @@
 		\photoL{\bHeaderPhoto cm}{\aHeaderPhoto}
 	}
 	% add personal info at bottom of header
-	\personalinfo{%
-		% Not all of these are required!
-		\email{\myMail}
-		\phone{\myPhone}
-		%\mailaddress{mailto:martin.knoefel@gmail.com}
-		\printinfo{\faEnvelope}{\myAddress}[\myAddressURL]
-		%\location{}
-		%  \printinfo{\faMapMarker}{Haagstr. 16, 91054 Erlangen, DE}[https://www.openstreetmap.org/\#map=18/49.58069/11.01337]
-		%\homepage{www.homepage.com}
-		%\twitter{@twitterhandle}
-		\linkedin{\myLinkedin}
-		%\github{your_id}
-		%\orcid{0000-0000-0000-0000}
-		%% You can add your own arbitrary detail with
-		%% \printinfo{symbol}{detail}[optional hyperlink prefix]
-		% \printinfo{\faPaw}{Hey ho!}[https://example.com/]
-		%% Or you can declare your own field with
-		%% \NewInfoFiled{fieldname}{symbol}[optional hyperlink prefix] and use it:
-		% \NewInfoField{gitlab}{\faGitlab}[https://gitlab.com/]
-		% \gitlab{your_id}
-		%%
-		%% For services and platforms like Mastodon where there isn't a
-		%% straightforward relation between the user ID/nickname and the hyperlink,
-		%% you can use \printinfo directly e.g.
-		% \printinfo{\faMastodon}{@username@instace}[https://instance.url/@username]
-		%% But if you absolutely want to create new dedicated info fields for
-		%% such platforms, then use \NewInfoField* with a star:
-		% \NewInfoField*{mastodon}{\faMastodon}
-		%% then you can use \mastodon, with TWO arguments where the 2nd argument is
-		%% the full hyperlink.
-		% \mastodon{@username@instance}{https://instance.url/@username}
-	}
+	\cvHeaderInfo
 	\makecvheader
 }

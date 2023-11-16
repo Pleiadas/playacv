@@ -1,6 +1,6 @@
 % cv.tex %%%%%%
 % This is a CV settings and contents template for PlayaCV, based on yet another LaTeX CV (AltaCV)
-% created by Martin Knöfel (https://github.com/Pleiadas/), v1.0, Nov 5, 2023
+% created by Martin Knöfel (https://github.com/Pleiadas/), v1.3, Nov 15, 2023
 % may be distributed and/or modified under the 
 % Creative Commons (https://creativecommons.org/licenses/by/4.0/) license (attribution)
 % version 4.0 as of Nov 5, 2023, or under the 
@@ -37,6 +37,7 @@
 \newcommand{\myLinkedin}{my-linkedin}
 % add an address link here and other urls in the cv, but don't forget to escape or encode the right characters!
 \newcommand{\myAddressURL}{https://www.openstreetmap.org/\#map=5/69/42}
+\newcommand{\myDate}{\today}
 
 % change the page layout if you need to
 \geometry{left=1.5cm,right=2cm,top=1.5cm,bottom=1.5cm,columnsep=0.3cm}
@@ -95,6 +96,8 @@
 % header settings, 1 = include, 9 = no
 % go to cvHeader.tex or to \makecvheader in playacv.cls for further modifications to the top part of the cv
 \newcommand{\WithHeader}{1}
+\newcommand{\ConfidentialLetter}{9} % <- ifnum = 1
+\newcommand{\ConfidentialHeader}{-- CONFIDENTIAL --} % line appears over recipient name in letter header
 
 % you can add one or multiple photos on the left or right with ',' e.g. qr,pic
 \newcommand{\aHeaderPhoto}{appendix/snow} % photo(s) file name/s without extensions, e.g. pic or qr,pic
@@ -115,6 +118,16 @@
 % cover letter header width for left and right minipages (contact data) at the top of the page
 \newcommand{\HeaderWidthL}{0.5}
 \newcommand{\HeaderWidthR}{0.3}
+\newcommand{\cvHeaderInfo}{
+	\personalinfo{%
+	% Not all of these are required!
+	\email{\myMail}
+	\phone{\myPhone}
+	\printinfo{\faEnvelope}{\myAddress}[\myAddressURL]
+	\printinfo{\faLinkedin}{my-name}[https://linkedin.com/in/my-profile-123456]
+	\printinfo{\faPaw}{Hey ho!}[https://example.com/]
+	}
+}
 
 % footer settings
 \newcommand{\WithFooter}{1}
@@ -209,6 +222,19 @@
 \newcommand{\WithCoverLetter}{9} % set to 1 to print letter + CV to PDF
 \newcommand{\WithBody}{1}
 \newcommand{\Body}{Cover letter body}
+\newcommand{\FormCoverLetter}{9}
+
+% form settings
+\newcommand{\WithForm}{9}
+\newcommand{\OnlyForm}{9} % to do
+\newcommand{\FormSubject}{Reply to ``\Subject`` (\myDate)}
+\newcommand{\FormBody}{
+	\linefield{formgreeting}{0.42\textwidth} \hfill ~\par
+	\bigskip
+	\boxfield[11.37cm]{formpar}{\textwidth}\par
+	\vfill
+	~ \hfill \rightfield{~~}{0.42\textwidth}\par
+}
 
 % abstract settings
 \newcommand{\WithAbstract}{9}
@@ -930,12 +956,12 @@
 \newcommand{\fSoftSkillOne}{9} % set to 1 to highlight soft skill
 
 \newcommand{\SoftSkillTwo}{1} % soft skill #2
-\newcommand{\aSoftSkillTwo}{Good at 2}
+\newcommand{\aSoftSkillTwo}{aSoftSkillTwo}
 %\newcommand{\bSoftSkillTwo}{5}
 \newcommand{\fSoftSkillTwo}{9}
 
 \newcommand{\SoftSkillThree}{1} % soft skill #3
-\newcommand{\aSoftSkillThree}{Take me for 3}
+\newcommand{\aSoftSkillThree}{Teamwork}
 %\newcommand{\bSoftSkillThree}{5}
 \newcommand{\fSoftSkillThree}{9}
 
@@ -945,24 +971,24 @@
 \newcommand{\fSoftSkillFour}{9}
 
 \newcommand{\SoftSkillFive}{1} % soft skill #5
-\newcommand{\aSoftSkillFive}{Result orientated}
+\newcommand{\aSoftSkillFive}{aSoftSkill}
 %\newcommand{\bSoftSkillFive}{5}
 \newcommand{\fSoftSkillFive}{9}
 
 \newcommand{\SoftSkillSix}{9} % soft skill #6
-\newcommand{\aSoftSkillSix}{Respectful communication}
+\newcommand{\aSoftSkillSix}{aSoftSkill}
 \newcommand{\fSoftSkillSix}{9}
 
 \newcommand{\SoftSkillSeven}{9} % soft skill #7
-\newcommand{\aSoftSkillSeven}{Inclusive}
+\newcommand{\aSoftSkillSeven}{aSoftSkill}
 \newcommand{\fSoftSkillSeven}{9}
 
 \newcommand{\SoftSkillEight}{9} % soft skill #8
-\newcommand{\aSoftSkillEight}{Teamwork}
+\newcommand{\aSoftSkillEight}{aSoftSkill}
 \newcommand{\fSoftSkillEight}{9}
 
 \newcommand{\SoftSkillNine}{9} % soft skill #9
-\newcommand{\aSoftSkillNine}{Fact-based decision making}
+\newcommand{\aSoftSkillNine}{aSoftSkill}
 \newcommand{\fSoftSkillNine}{9}
 
 \newcommand{\SoftSkillTen}{9} % soft skill #10
@@ -1096,7 +1122,7 @@
 \newcommand{\Company}{Microsoft Corporation} % company (e.g. "Microsoft Corporation")
 \newcommand{\Subject}{Application for dream job 12345} % company (e.g. "Microsoft Corporation")
 \newcommand{\Greeting}{Dear} % greeting to use (e.g. "Dear")
-\newcommand{\Closer}{Kind Regards} % closer to use (e.g. "Kind Regards")
+\newcommand{\Closer}{Kind Regards,} % closer to use (e.g. "Kind Regards")
 \newcommand{\CompanyStreet}{1 Microsoft Way} % company's street address (e.g. "1 Microsoft Way")
 \newcommand{\CompanyCity}{Redmond} % ompany's city (e.g. "Redmond")
 \newcommand{\CompanyState}{WA} % company's state prefix (e.g. "WA")

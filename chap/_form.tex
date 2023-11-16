@@ -1,0 +1,62 @@
+% _form
+\newgeometry{left=1.5cm,right=1.8cm,top=1.37cm,bottom=.731cm,columnsep=0.3cm}
+\renewcommand{\HeaderWatermark}{1} % set to 1 to include watermark
+\renewcommand{\aHeaderWatermark}{img/watermark} % watermark picture file name
+\renewcommand{\bHeaderWatermark}{1.5} % watermark width in cm
+\renewcommand{\cHeaderWatermark}{1} % watermark opacity in 0..1
+\renewcommand{\dHeaderWatermark}{16.2} % left -/+ right distance from center in cm
+\renewcommand{\eHeaderWatermark}{-0.42} % up -/+ down position in cm, useful to adjust address fields vertically
+\renewcommand{\HeaderWidthL}{.3}
+\renewcommand{\HeaderWidthR}{.6}
+\cvsetting{\WithForm}{ % set to 1 to include form
+	\begin{Form}
+		% Header
+		\input{chap/_formHeader}
+		% Opening block
+		\par{\large \bfseries \FormSubject \hfill ~}\par
+		\vspace{.69cm}
+		%
+		% custom forms chapter
+		%\input{chap/_formChapter}
+		% Dear ,
+		%\Greeting\ \RecipientName,\\
+		%
+		% Form Body
+		\FormBody
+		%
+		% Closer and footer
+		\input{chap/_formFooter}
+		%
+	\end{Form}
+	
+}
+
+% ONLY APPLICATION LETTER AS FORM
+\cvsetting{\OnlyForm}{
+\newpage
+		\begin{Form}
+		% Header
+		\input{chap/_formHeader}
+		% Opening block
+		\par{\large \bfseries \FormSubject \hfill ~}\par
+		\vspace{.69cm}
+		%
+		% custom forms chapter
+		%\input{chap/_formChapter}
+		% Dear ,
+		%\Greeting\ \RecipientName,\\
+		%
+		% Form Body
+		\FormBody
+		%
+		% Closer and footer
+		\input{chap/_formFooter}
+		%
+	\end{Form}
+		% remove cv blocks
+		\renewcommand{\WithHeader}{9}
+		\renewcommand{\WithFooter}{9}
+		\renewcommand{\LeftColumn}{}
+		\renewcommand{\RightColumn}{}
+		%	
+}

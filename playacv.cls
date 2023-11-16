@@ -328,6 +328,10 @@
 %% enable quick content editing, adds easy content setting command to include elements
 \newcommand{\cvsetting}[3][]{\ifnum #2=1 #3 \else #1\fi}
 
+\newcommand{\cvInfoField}[3][]{ % must contain link
+{\color{accent} #1} \href{#3}{#2}\par
+}
+
 %% itemize environment with highlight item selection
 \newcommand{\cvitems}[6][9]{%
 \begin{itemize}
@@ -535,4 +539,185 @@
 \pagestyle{empty}
 \color{body}
 \raggedright
+}
+
+% v1.3 playacv add form capabilities
+\RequirePackage[pdftex]{hyperref} % docs: https://michael-prokop.at/latextug/hyperref.pdf
+
+% thank you Malte Gerken
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt}
+
+% normal form field
+\newcommand{\labeledfield}[2]{
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt}
+	\TextField[width=#2]{#1}
+}
+
+% right aligned form field
+\newcommand{\rightfield}[2]{
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt, align=2,width=#2}
+	\TextField[name=#1]{}
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt}
+}
+
+% box with 4 lines, standard multiline env.
+\newcommand{\boxfield}[3][2.6cm]{
+\renewcommand*{\DefaultOptionsofText}{bordercolor={black}, backgroundcolor=white, borderwidth=0pt, charsize=11pt, multiline=true, height=#1, name=#2}
+	\TextField[width=#3]{}
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt}
+}
+% header field with name, address and contact form
+\newcommand{\headerfield}[2]{
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, bordersep=0pt, height=\baselineskip, charsize=11pt, width=0.95\textwidth, align=2}
+	\TextField[name=#1namecontact]{#1}~\par
+	\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, bordersep=0pt, charsize=11pt, multiline=true, width=0.75\textwidth, value=address, align=2}
+	\TextField[value=#2]{#1}
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=10pt, width=\textwidth, align=2}\par
+	\begin{minipage}{0.9\textwidth}
+	\TextField[name=#1mailcontact]{}\\
+	\TextField[name=#1phonecontact]{}\\
+	\TextField[name=#1linkedincontact]{}
+	\end{minipage}
+	\hfill
+	\begin{minipage}{0.08\textwidth}
+	{\normalsize \faAt\par
+	\faPhone\par
+	\faGlobe\par}
+	\end{minipage}
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt}
+}
+
+% multiline form field up to 15 lines form, line by line input (tab)
+\newcommand{\linefield}[3][1]{
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={white}, backgroundcolor=white, borderwidth=0pt, bordersep=0pt, height=\baselineskip, charsize=10pt, width=#3}
+	\ifnumgreater{#1}{15}{Please just start a new line and insert a multifield with max. 15 lines.\par
+		ToDo: Expand Max. lines per multifield from 15 to n with loop in playacv.cls}{
+    \ifnum #1 = 1 \TextField[name=1#2]{} \fi
+    \ifnum #1 = 2 \TextField[name=1#2]{}\\
+    \TextField[name=2#2]{} \fi
+    \ifnum #1 = 3 \TextField[name=1#2]{}\\
+    \TextField[name=2#2]{}\\
+    \TextField[name=3#2]{} \fi
+    \ifnum #1 = 4 \TextField[name=1#2]{}\\
+    \TextField[name=2#2]{}\\
+    \TextField[name=3#2]{}\\
+    \TextField[name=4#2]{} \fi
+    \ifnum #1 = 5 \TextField[name=1#2]{}\\
+    \TextField[name=2#2]{}\\
+    \TextField[name=3#2]{}\\
+    \TextField[name=4#2]{}\\
+    \TextField[name=5#2]{} \fi
+    \ifnum #1 = 6 \TextField[name=1#2]{}\\
+    \TextField[name=2#2]{}\\
+    \TextField[name=3#2]{}\\
+    \TextField[name=4#2]{}\\
+    \TextField[name=5#2]{}\\
+    \TextField[name=6#2]{} \fi
+    \ifnum #1 = 7 \TextField[name=1#2]{}\\
+    \TextField[name=2#2]{}\\
+    \TextField[name=3#2]{}\\
+    \TextField[name=4#2]{}\\
+    \TextField[name=5#2]{}\\
+    \TextField[name=6#2]{}\\
+    \TextField[name=7#2]{} \fi
+    \ifnum #1 = 8 \TextField[name=1#2]{}\\
+    \TextField[name=2#2]{}\\
+    \TextField[name=3#2]{}\\
+    \TextField[name=4#2]{}\\
+    \TextField[name=5#2]{}\\
+    \TextField[name=6#2]{}\\
+    \TextField[name=7#2]{}\\
+    \TextField[name=8#2]{} \fi
+    \ifnum #1 = 9 \TextField[name=1#2]{}\\
+    \TextField[name=2#2]{}\\
+    \TextField[name=3#2]{}\\
+    \TextField[name=4#2]{}\\
+    \TextField[name=5#2]{}\\
+    \TextField[name=6#2]{}\\
+    \TextField[name=7#2]{}\\
+    \TextField[name=8#2]{}\\
+    \TextField[name=9#2]{} \fi
+    \ifnum #1 = 10 \TextField[name=1#2]{}\\
+    \TextField[name=2#2]{}\\
+    \TextField[name=3#2]{}\\
+    \TextField[name=4#2]{}\\
+    \TextField[name=5#2]{}\\
+    \TextField[name=6#2]{}\\
+    \TextField[name=7#2]{}\\
+    \TextField[name=8#2]{}\\
+    \TextField[name=9#2]{}\\
+    \TextField[name=10#2]{} \fi
+    \ifnum #1 = 11 \TextField[name=1#2]{}\\
+    \TextField[name=2#2]{}\\
+    \TextField[name=3#2]{}\\
+    \TextField[name=4#2]{}\\
+    \TextField[name=5#2]{}\\
+    \TextField[name=6#2]{}\\
+    \TextField[name=7#2]{}\\
+    \TextField[name=8#2]{}\\
+    \TextField[name=9#2]{}\\
+    \TextField[name=10#2]{}\\
+    \TextField[name=11#2]{} \fi
+    \ifnum #1 = 12 \TextField[name=1#2]{}\\
+    \TextField[name=2#2]{}\\
+    \TextField[name=3#2]{}\\
+    \TextField[name=4#2]{}\\
+    \TextField[name=5#2]{}\\
+    \TextField[name=6#2]{}\\
+    \TextField[name=7#2]{}\\
+    \TextField[name=8#2]{}\\
+    \TextField[name=9#2]{}\\
+    \TextField[name=10#2]{}\\
+    \TextField[name=11#2]{}\\
+    \TextField[name=12#2]{} \fi
+    \ifnum #1 = 13 \TextField[name=1#2]{}\\
+    \TextField[name=2#2]{}\\
+    \TextField[name=3#2]{}\\
+    \TextField[name=4#2]{}\\
+    \TextField[name=5#2]{}\\
+    \TextField[name=6#2]{}\\
+    \TextField[name=7#2]{}\\
+    \TextField[name=8#2]{}\\
+    \TextField[name=9#2]{}\\
+    \TextField[name=10#2]{}\\
+    \TextField[name=11#2]{}\\
+    \TextField[name=12#2]{}\\
+    \TextField[name=13#2]{} \fi
+    \ifnum #1 = 14 \TextField[name=1#2]{}\\
+    \TextField[name=2#2]{}\\
+    \TextField[name=3#2]{}\\
+    \TextField[name=4#2]{}\\
+    \TextField[name=5#2]{}\\
+    \TextField[name=6#2]{}\\
+    \TextField[name=7#2]{}\\
+    \TextField[name=8#2]{}\\
+    \TextField[name=9#2]{}\\
+    \TextField[name=10#2]{}\\
+    \TextField[name=11#2]{}\\
+    \TextField[name=12#2]{}\\
+    \TextField[name=13#2]{}\\
+    \TextField[name=14#2]{} \fi
+    \ifnum #1 = 15 \TextField[name=1#2]{}\\
+    \TextField[name=2#2]{}\\
+    \TextField[name=3#2]{}\\
+    \TextField[name=4#2]{}\\
+    \TextField[name=5#2]{}\\
+    \TextField[name=6#2]{}\\
+    \TextField[name=7#2]{}\\
+    \TextField[name=8#2]{}\\
+    \TextField[name=9#2]{}\\
+    \TextField[name=10#2]{}\\
+    \TextField[name=11#2]{}\\
+    \TextField[name=12#2]{}\\
+    \TextField[name=13#2]{}\\
+    \TextField[name=14#2]{}\\
+    \TextField[name=15#2]{} \fi
+    }
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip}
+}
+
+% in line form field (deprecated probably)
+\newcommand{\fieldinline}[2]{
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, width=#2}\TextField[name=#1]{}
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt}
 }

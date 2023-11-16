@@ -20,29 +20,21 @@
 	\begin{minipage}[t]{\HeaderWidthL \linewidth} % left minipage
 		\vspace{1cm}
 		\cvsetting{\ConfidentialLetter}{\ConfidentialHeader\\}
-		\RecipientName\\
-		\Company\\
-		\CompanyStreet\\
-		\CompanyZip{} \CompanyCity\\
-		\CompanyState
+		\myName\\
+		\myStreet\\
+		\myZIP{} \myCity\\
+		\myState\\
+		\href{mailto:\myMail?subject=\FormSubject}{\faEnvelope[]}
 	\end{minipage}
 	%
 	\hfill
 	%
-	\begin{minipage}[t]{\HeaderWidthR \linewidth} % right minipage
-		\vspace{0.5cm}
-		\cvsetting{\HeaderPhotoR}{
-			\photoR{\bHeaderPhoto cm}{\aHeaderPhoto}
-		}
-		\textbf{\normalsize \myName}\\
-		\textsl{\myStreet\\
-			\myZIP{} \myCity\\
-			\myState}\\
-		\smallskip
-		\href{mailto:\myMail}{\faAt \myMail}\\
-		\href{tel:\myPhone}{\faPhone \myPhone}\\
-		\href{https://linkedin.com/in/\myLinkedin}{\faLinkedin \myLinkedin}
+	\begin{minipage}[t]{\HeaderWidthR \linewidth} % left minipage
+		\vspace{.69cm}
+		%\field{}{\linewidth}\\
+	\begin{flushright}
+		\headerfield{~}{}\\
+	\end{flushright}
 	\end{minipage}
-	
 	\bigskip
 }

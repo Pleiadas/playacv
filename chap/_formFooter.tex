@@ -1,0 +1,24 @@
+\cvsetting{\WithFooter}{
+	% left text, picture, center watermark and right text, picture
+	% e.g. location and date, QR, watermark and name, signature to the footer
+	\vfill % go to bottom of the page
+	% 
+	% Footer Form
+	\par\noindent\rule{\textwidth}{0.33pt}\par
+	\vspace{.26cm}
+	\begin{minipage}{0.3\textwidth}
+		\linefield[3]{footerparleft}{\textwidth}
+	\end{minipage}
+\hfill
+	\begin{minipage}{0.42\textwidth}
+	\linefield[3]{footerparcenter}{\textwidth}
+\end{minipage}
+\hfill
+	\begin{minipage}{0.25\textwidth}
+	\rightfield{footerparrightone}{\textwidth}\\
+	\rightfield{footerparrightone}{\textwidth}\\
+	\rightfield{footerparrightone}{\textwidth}
+\end{minipage}
+	\linefield[2]{footerpar}{\textwidth}
+	
+}

@@ -1,5 +1,10 @@
 # PlayaCV, Plug and play LaTeX Application class
-v1.2 (9 Nov 2023), by Martin Knöfel (martin.knoefel@gmail.com)
+v1.3 (15 Nov 2023), by Martin Knöfel (martin.knoefel@gmail.com)
+* added forms using \RequirePackage[pdftex]{hyperref}
+* added response letter and cover letter templates as interactive forms (editable in browser)
+* updated files to make template.tex compatible
+
+v1.2 (9 Nov 2023)
 * changed `\cvachievement` for a more consistent look
 * added abstract to `\PhD` setting example
 * removed slanted style for `\cventry` left symbolic field content
@@ -603,6 +608,7 @@ Use `\renewcommand` to change these.
 * `\cvsubsectionfont`
 
 ---
+
 
 ## `legacy/sample-old.tex`
 

@@ -1,7 +1,7 @@
+% _letter
+
 \cvsetting{\WithCoverLetter}{ % set to 1 to include application letter
 	
-	% _letter
-	\newpage
 	% Header
 	\input{chap/_letterHeader}
 	%
@@ -11,24 +11,34 @@
 	%
 	\input{chap/_abstract}
 	\vfill
+	%
+	% Body
+	\cvsetting[
 	% Dear ,
 	\Greeting\ \RecipientName,\\
 	%
 	\smallskip
-	% Body
-	{\justifying \cvsetting{\WithBody}{\Body}}
-	%
-	\vfill
+	{\justifying 
+		\Body}
+		\vfill
 	%
 	% Closer and footer
-	\input{chap/_letterFooter}
-	%
-	\clearpage
+	\input{chap/_letterFooter}]
+	{\FormCoverLetter}{
+	\begin{Form}
+		\FormBody
+		\vfill
+		\vspace{2.6cm}
+		\linefield{formletterlocation}{0.42\textwidth} \hfill \rightfield{~~~}{0.42\textwidth}\\
+		Location, Date \hfill \myName\\
+		\input{chap/_formFooter}
+	\end{Form}
+}
+
 }
 
 % ONLY APPLICATION LETTER
 \cvsetting{\OnlyCoverLetter}{
-
 	% Header
 	\input{chap/_letterHeader}
 	%
@@ -39,17 +49,29 @@
 	\bigskip
 	%
 	\vfill
+	% Body
+	\cvsetting[
 	% Dear ,
 	\Greeting\ \RecipientName,\\
 	%
 	\smallskip
-	% Body
-	{\justifying \cvsetting{\WithBody}{\Body}}
+	{\justifying 
+	\Body}
 	%
 	\vfill
 	%
-	% Closer and footer
-	\input{chap/_letterFooter}
+	% Closer and footer if letter
+	\input{chap/_letterFooter}]
+	{\FormCoverLetter}{
+	\begin{Form}
+		\FormBody
+		\vspace{2.6cm}
+		\linefield{formlocation}{0.42\textwidth} \hfill \rightfield{~~~}{0.42\textwidth}\\
+		Location, Date \hfill Signature, Name\\
+		\input{chap/_formFooter}
+	\end{Form}
+	}
+
 	% remove cv blocks
 	\renewcommand{\WithHeader}{9}
 	\renewcommand{\WithFooter}{9}
