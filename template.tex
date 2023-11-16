@@ -1,8 +1,7 @@
 % template.tex simple cv document file template for playacv v1.3
 
-% Remove the "normalphoto" option if you want an image cropped to a circle instead of a square in the header
-% \documentclass[10pt,a4paper,withhyper]{playacv} % or add document options, e.g. withhyper for hidden urls
-\documentclass[11pt, a4paper, normalphoto, withhyper, ragged2e]{playacv}
+% Use "normalphoto" option to remove cropping from the header photo or add document options, e.g. withhyper for hidden urls
+\documentclass[11pt, a4paper, withhyper, ragged2e]{playacv}
 
 % your additional packages
 \usepackage{lipsum}
@@ -15,30 +14,30 @@
 \definecolor{SymbolColor}{HTML}{ee7711} % changes symbols and rated skills colour
 \definecolor{HighlightColor}{HTML}{2A2A84} % changes highlights text colour
 
-% default cv data
+% default cv data input, copy settings (usually defined with \newcommand) 
+%%% and overwrite with custom settings in this file using \renewcommand{\aSetting}{New Value}
 \input{cv}
 %
-\begin{document}
-	
-	% letter and pages options, create your own with \newcommand for custom settings
-	\newcommand{\OnePager}{9} % set to 1 to use your one page cv layout, defined below at the end of the settings
-	\renewcommand{\OnlyCoverLetter}{9} % set to 1 to print only letter to PDF
-	\renewcommand{\FormCoverLetter}{9}  % set to 1 to print letter as interactive form to pdf
-	
-	% change the letter page layout if you need to
-	\newgeometry{left=1.5cm,right=2cm,top=1.3cm,bottom=1.5cm,columnsep=0.3cm}
-	
+\begin{document}	
 	% optional pages (9,9,9 = print only CV)                                                          #(1)
-	\renewcommand{\WithCoverLetter}{1} % set to 1 to print letter + CV to PDF
-	\renewcommand{\WithAppendix}{1} % set to 1 to print appendix pages to PDF
-	\renewcommand{\WithForm}{1}  % set to 1 to print response form to pdf
+	\renewcommand{\WithCoverLetter}{1} % set to 1 to print letter + CV to PDF (can combine with \FormCoverLetter)
+	\renewcommand{\WithAppendix}{9} % set to 1 to print appendix pages to PDF
+	\renewcommand{\WithForm}{1} % set to 1 to print attached response form to PDF/A, works in most browsers
 	
+	% letter and pages options
+	\newcommand{\OnePager}{9} % set to 1 to use your one page cv layout, defined below at the end of the settings
+	\renewcommand{\OnlyCoverLetter}{9} % set to 1 to print only letter to PDF (can combine with \FormCoverLetter)
+	\renewcommand{\FormCoverLetter}{9}  % set to 1 to print cover letter as interactive form to PDF/A
 	
 	%%% user specific content settings 
 	\newcommand{\PhD}{9} % example settings defined below for changing to academia applications e.g. education on top
 	
+	%%% for example, if several applications ask for a driving license and your trucker experience, 
+	%%% you can group settings like in the following example. Useful for repeating setting patterns.
+	%%% (\PhD above is provided as a more thorough usage example of the same principle)
 	\newcommand{\drive}{\renewcommand{\PersonalInfoFour}{1}}
 	
+%%%%%%% CUSTOM COVER LETTER %%%%%%%
 	%%% recipient information (only needed with cover letter)
 	\renewcommand{\RecipientName}{Joe Hiring} % name (e.g. "Sabrina Hiring")
 	\renewcommand{\Company}{Microsoft Corporation} % company (e.g. "Microsoft Corporation")
@@ -47,7 +46,7 @@
 	\renewcommand{\CompanyState}{WA} % company's state prefix (e.g. "WA")
 	\renewcommand{\CompanyZip}{98052} % company's zip code (e.g. "98052")
 	
-	%% cover letter settings
+	%%% cover letter settings
 	\renewcommand{\HeaderWatermark}{1} % set to 1 to include watermark
 	
 	\renewcommand{\cFooterWatermark}{0.137} % watermark opacity in 0..1
@@ -82,7 +81,7 @@
 			\medskip
 		}
 		\begin{itemize}
-			\item this \textsl{\bfseries template.tex} is provided as a starting point for setting up your own applications. Just copy, paste and enjoy!
+			\item \textsl{\bfseries Myplayacv.tex} is provided as a starting point for setting up your own applications \item this \textsl{\bfseries template.tex} can be used as an inspiration. Just copy, paste and enjoy!
 			\item input your default data in \textsl{\bfseries cv.tex}. A set of résumé elements is available for editing and inclusion at you discretion
 			\item once set up, just change a few lines in \textsl{\bfseries your.tex} file to compile a taylored application for your desired position
 			\item supports images and multiple pages pdfs as annexes and browser-level compatible form fields for interactive letters
@@ -94,32 +93,44 @@
 	
 	% letter \PhD settings example for academia applications
 	\cvsetting{\PhD}{\renewcommand{\WithAbstract}{1}}	
+	
+	% change the letter page layout if you need to
+	\newgeometry{left=1.5cm,right=2cm,top=1.3cm,bottom=1.5cm,columnsep=0.3cm}
 	%
 	\input{chap/_letter}
 	%
-	
+%%%%%%% CUSTOM RÉSUMÉ FOR THIS APPLICATION %%%%%%%	
 	%%% CV layout and content settings
 	%%% #1: layout, header, hooter, chapter selection and order                                                #1
 	
 	%%% Change text under name for this application                                                               
 	\renewcommand{\aHeaderQuote}{My first Résumé with \LaTeX{} PlayaCV}
 	
-	% change the cv page layout if you need to
-	\newgeometry{left=1cm,right=1.3cm,top=1.3cm,bottom=1.5cm,columnsep=0.3cm}
-	
-	% header and footer options
+	%%% header and footer options
 	\renewcommand{\HeaderWatermark}{1}
 	\renewcommand{\bHeaderWatermark}{3.17}
 	\renewcommand{\cHeaderWatermark}{0.137}
 	\renewcommand{\dHeaderWatermark}{0} % left -/+ right distance from center in cm
 	\renewcommand{\eHeaderWatermark}{-0.0} % up -/+ down position in cm
 	
+	\renewcommand{\cvHeaderInfo}{
+		\personalinfo{%
+			\email{\myMail}
+			\phone{\myPhone}
+			% change header info if needed
+			\printinfo{\faEnvelope}{\myAddress}[\myAddressURL]
+			\printinfo{\faLinkedin}{my-name}[https://linkedin.com/in/my-profile-123456]
+			\printinfo{\faPaw}{Hey ho!}[https://example.com/]
+		}
+	}
+	
 	\renewcommand{\FooterWatermark}{1}
 	\renewcommand{\cFooterWatermark}{0.69}
 	\renewcommand{\FooterPhotoL}{1}
 	%\renewcommand{\aFooterPhotoL}{img/qrGit}
 	
-	
+	% change the cv page layout if you need to
+	\newgeometry{left=1cm,right=1.3cm,top=1.3cm,bottom=1.5cm,columnsep=0.3cm}
 	%
 	\input{chap/_cvHeader}
 	%
@@ -134,6 +145,8 @@
 	%%% \cvsetting{\MySetting}{
 	%%% \renewcommand{\aSummary}{My shorter summary text}
 	%%% }
+	
+	%%% Examples for custom changes
 	
 	%%% chapters for this application
 	\renewcommand{\WithPersonalInfo}{1}
@@ -173,12 +186,12 @@
 	\renewcommand{\SoftSkillTwo}{1}
 	\renewcommand{\aSoftSkillTwo}{Rapid learning}
 	
-	%% experiences contents changes
+	%%% experiences contents changes
 	\renewcommand{\eExperienceTwo}{}
 	\renewcommand{\eExperienceThree}{}
 	\renewcommand{\eExperienceSix}{}
 	
-	
+	%%% example when using \cvItems, notice you need to include all brackets
 	%	\renewcommand{\eExperienceItemsOne}{\cvitems[\fExperienceOne] % highlight option 1..5 or 9
 		%	{} % items {1}..{5}
 		%	{}{}{}{}}
@@ -196,8 +209,9 @@
 	% soft skills and hobbies support a maximum of fifteen elements
 	\renewcommand{\HobbyEight}{1} % set to 1 to get Cooking
 	
-	% highlights or other changes for this position, copy paste to bottom to create semantics short selections
-	%%% Every last \renewcommand{\CvSetting}{SettingValue} will overwrite the previous setting                 #3
+	%%% highlights or other changes for this position
+	%%% The last \renewcommand{\cvSetting}{New Value} will overwrite the previous setting                 #3
+	%%% that is why grouped settings must be defined at the bottom of the file
 	
 	%%% highlights
 	\renewcommand{\fSkillTwo}{1}
@@ -206,9 +220,28 @@
 	\renewcommand{\fSoftSkillNine}{1}
 	\renewcommand{\fReferenceTwo}{1}
 	
-	% user defined settings
+%%%%%%% CUSTOM ANNEXES %%%%%%%
+	\renewcommand{\AppendixOne}{1} % set to 1 to include Appendix chapter #1
+	\renewcommand{\aAppendixOne}{Appendix 1 (one page pdf/image)} % appendix TITLE
+	\renewcommand{\bAppendixOne}{appendix/snow} % appendix file (image, pdf)
+	\renewcommand{\cAppendixOne}{0.96} % scaling factor
+	\renewcommand{\dAppendixOne}{1} % if greater then 1, prints all pages from 1 to \dAppendixOne
+
+%%%%%%% CUSTOM FORM %%%%%%%
+	%%% Form settings, defaults to a reply letter form
+	\renewcommand{\FormBody}{
+		\linefield{respformgreeting}{0.42\textwidth} \hfill ~\par
+		\bigskip
+		\boxfield[11.37cm]{respformpar}{\textwidth}\par
+		\vfill
+		~ \hfill \rightfield{respformclosing}{0.42\textwidth}\par
+		\vspace{2.6cm}
+		\linefield{respformlocation}{0.42\textwidth} \hfill \rightfield{~~~}{0.42\textwidth}\\
+		Location, Date \hfill Signature, Name\\
+	}
 	
-	%cv \PhD settings for academia application (example)
+%%%%%%% CUSTOM GROUPED SETTINGS %%%%%%%
+	%%% cv \PhD settings for academia application (example for grouped settings)
 	\cvsetting{\PhD}{				
 		\renewcommand{\WithSummary}{1}
 		\renewcommand{\WithAwards}{1}
@@ -274,10 +307,7 @@
 		\renewcommand{\ExperienceThree}{9} % do not show experience #3
 		\renewcommand{\eExperienceItemsFour}{
 			\cvitems{Only one item}{}{}{}{}		}
-		\renewcommand{\eSocialItemOne}{9} % no item part for the volunteering #1
-		\renewcommand{\eSocialItemTwo}{9}
-		\renewcommand{\eSocialTwo}{} % empty description for volunteering #2
-		\renewcommand{\SocialItemThree}{9}
+		\renewcommand{\SocialTwo}{9} % remove volunteering #2
 		
 		\renewcommand{\LanguageFour}{1}
 		\renewcommand{\LanguageFive}{9}
@@ -286,19 +316,7 @@
 		\renewcommand{\WithAppendix}{9}
 	}
 
-	% reply form settings
-	\renewcommand{\FormBody}{
-		\linefield{respformgreeting}{0.42\textwidth} \hfill ~\par
-		\bigskip
-		\boxfield[11.37cm]{respformpar}{\textwidth}\par
-		\vfill
-		~ \hfill \rightfield{respformclosing}{0.42\textwidth}\par
-		\vspace{2.6cm}
-		\linefield{respformlocation}{0.42\textwidth} \hfill \rightfield{~~~}{0.42\textwidth}\\
-		Location, Date \hfill Signature, Name\\
-	}
-	
-	% End of application settings here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%% End of application settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%
 	\cvsetting[
 	%
@@ -312,24 +330,25 @@
 	% break across pages if things get too long.
 	\begin{paracol}{2}
 		
-		%%% you might want to adjust the vertical alignment of the top of the left column here 
-		\vspace{0.0mm}
+		% vertical adjustment left
+		\vspace{\vLeftColumn}
 		%
 		\LeftColumn
 		%
 		% switch to the right column
 		\switchcolumn
 		
-		%%% you might want to adjust the vertical alignment of the top of the right column here
-		\vspace{0.0mm} 
+		% vertical adjustment right
+		\vspace{\vRightColumn} 
 		%
 		\RightColumn
 		%
-		%% cv body end 
 	\end{paracol}
-	% 
+	%% cv body end 
+	%
 	\input{chap/_cvFooter}
 	]{\OnlyCoverLetter}{}
+	
 	% change the appendix page layout here if you need to
 	\newgeometry{left=1cm,right=1.3cm,top=1.5cm,bottom=1.5cm,columnsep=0.3cm}
 	%

@@ -1,8 +1,15 @@
 # PlayaCV, Plug and play LaTeX Application class
 v1.3 (15 Nov 2023), by Martin Kn√∂fel (martin.knoefel@gmail.com)
 * added forms using \RequirePackage[pdftex]{hyperref}
-* added response letter and cover letter templates as interactive forms (editable in browser)
-* updated files to make template.tex compatible
+* provides 
+ * `\formfield`,`\labeledfield`,`\centefield`,`\rightfield` for aligned one line form fields
+ * `\boxfield` and `\linefield` for multiple line form fields
+ * `\headerfield` for right aligned header form fields e.g. for sender addresses
+* added response letter and cover letter templates as interactive forms (editable in most browsers)
+* updated chapter files to make template.tex compatible with v1.3
+* updated cv.tex to include options for forms and rearranged
+* updated sample.tex available below for full options display
+* added Myplayacv.tex as default cv template
 
 v1.2 (9 Nov 2023)
 * changed `\cvachievement` for a more consistent look
@@ -69,14 +76,13 @@ or a regular Tag if `\UserTwo` = 9 (or another number)
 * The samples here use the [Lato](http://www.latofonts.com/lato-free-fonts/) and [Roboto Slab fonts](https://github.com/googlefonts/robotoslab). Feel free to use a different typeface package instead‚Äîoften a different typeface will change the entire CV's feel.
 
 ## Sample
-In sample.pdf you can see the full display of options available in fictionary r√©sum√©, template.tex provides a standard cv template to start your own.
+In sample.pdf you can see the full display of options available in a fictionary r√©sum√©, template.tex provides an example application template, Myplayacv.tex is a basic cv template.
 * sample.tex source:
 ```latex
-% sample.tex v1.2 playacv full standardised options cv file
-% sample.pdf output is in appendix folder
+% sample.tex v1.3 playacv full standardised options cv file
+% sample.pdf v1.0 output is in appendix folder
 % Add the "normalphoto" option if you want a square image instead of cropped to a circle in the header
 % \documentclass[10pt,a4paper,withhyper,normalphoto]{playacv} % or add document options, e.g. withhyper for hidden urls
-
 \documentclass[11pt, a4paper, withhyper, ragged2e]{playacv}
 %
 % packages for sample dummy content and documentation
@@ -103,17 +109,16 @@ In sample.pdf you can see the full display of options available in fictionary r√
 %
 \begin{document}
 	
-	% letter and pages settings
-	\newcommand{\OnePager}{9}
+	% optional pages (9,9,9 = print only CV)                                                          #(4)
+	\renewcommand{\WithCoverLetter}{1} % set to 1 to print letter + CV to pdf
+	\renewcommand{\WithAppendix}{1} % set to 1 to print appendix pages to pdf
+	\renewcommand{\WithForm}{1}  % set to 1 to print response form to pdf
 	
-	% change the letter page layout if you need to
-	\newgeometry{left=1.5cm,right=2cm,top=1.5cm,bottom=1.5cm,columnsep=0.3cm}
-	
-	% optional pages settings (999 = only CV)                                                                    #(4)
-	\renewcommand{\OnlyCoverLetter}{9} % set to 1 to print only letter to PDF
-	\renewcommand{\WithCoverLetter}{1} % set to 1 to print letter + CV to PDF
-	\renewcommand{\WithAppendix}{1} % set to 1 to print appendix pages to PDF
-	
+	% letter and pages options, create your own with \newcommand for custom settings
+	\newcommand{\OnePager}{9} % set to 1 to use your one page cv layout, defined below at the end of the settings
+	\renewcommand{\OnlyCoverLetter}{9} % set to 1 to print only letter to pdf
+	\renewcommand{\FormCoverLetter}{9}  % set to 1 to print cover letter as interactive form to pdf
+		
 	\renewcommand{\myName}{Corinna Vitalium}
 	\renewcommand{\myMail}{cv@pla.ya}
 	\renewcommand{\myPhone}{+987 654 3210-12}
@@ -175,23 +180,23 @@ In sample.pdf you can see the full display of options available in fictionary r√
 			\item add any cv elements in the cover letter too, if you like: on the right you can see an example with a combination of a \textsl{\bfseries cvbox} containing text, some \textsl{\bfseries cvskill} and some \textsl{\bfseries cvtag}, with some \textcolor{HighlightColor}{\bfseries highlights}
 			\item all common r√©sum√© sections and contents are included, combined with a simplistic data input form in \textsl{\bfseries cv.tex}
 			\item once set up, you only need to change a few lines to compile a taylored application for your desired position
-			\item \textsl{\bfseries template.tex} is provided as a starting point for setting up your own applications. Just copy, paste and enjoy!
+			\item \textsl{\bfseries template.tex} is provided as an example for setting up your own applications. Just copy, paste and enjoy!
 			\item this \textsl{\bfseries sample.pdf} contains at least one instance of all available cv elements. Its code can be found in \textsl{\bfseries README.md}
+			\item supports creating customised {\bfseries letters}, using images and multiple pages pdfs as {\bfseries annexes} and PDF/A {\bfseries input forms}
 		\end{itemize}
 		\medskip
 		\lipsum[2-3]
 		\bigskip
 	}
 	
+	% change the letter page layout if you need to
+	\newgeometry{left=1.5cm,right=2cm,top=1.3cm,bottom=1.5cm,columnsep=0.3cm}
 	%
 	\input{chap/_letter}
 	%
 	
 	%%% CV layout and content settings
 	%%% #1: layout, header, hooter, chapter selection and order
-	
-	% change the cv page layout if you need to
-	\newgeometry{left=1cm,right=1.3cm,top=1.5cm,bottom=1.5cm,columnsep=0.3cm}    
 	
 	%% Change text under name for this application
 	\renewcommand{\aHeaderQuote}{A sample R√©sum√© with \LaTeX{} PlayaCV}
@@ -203,7 +208,8 @@ In sample.pdf you can see the full display of options available in fictionary r√
 	\renewcommand{\FooterWatermark}{1}
 	\renewcommand{\cFooterWatermark}{.69}
 	
-	
+	% change the cv page layout if you need to
+	\newgeometry{left=1cm,right=1.3cm,top=1.5cm,bottom=1.5cm,columnsep=0.3cm}    
 	%
 	\input{chap/_cvHeader}
 	%
@@ -224,7 +230,6 @@ In sample.pdf you can see the full display of options available in fictionary r√
 		\input{chap/_SoftSkills}
 		\input{chap/_Projects}
 		\input{chap/_References}
-		
 	}
 	
 	% chapters to be displayed on the right side, from top to bottom
@@ -245,8 +250,8 @@ In sample.pdf you can see the full display of options available in fictionary r√
 	%%% Also, you can combine it with a \MySetting = 1 to print custom content to the cv only if needed, using 
 	%%% \newcommand{\MySetting}{1} % before e.g. a shorter new text for your summary in the Summary chapter, with
 	%%% \cvsetting{\MySetting}{
-		%%% \renewcommand{\aSummary}{My shorter summary text}
-		%%% }
+	%%% \renewcommand{\aSummary}{My shorter summary text}
+	%%% }
 	
 	%% Choose chapters for this application
 	\renewcommand{\WithAwards}{1}
@@ -291,13 +296,6 @@ In sample.pdf you can see the full display of options available in fictionary r√
 	\renewcommand{\aSkillFive}{I got this}
 	\renewcommand{\bSkillFive}{5}
 	
-	\renewcommand{\SkillSix}{9}
-	\renewcommand{\aSkillSix}{6}
-	\renewcommand{\bSkillSix}{2.5}
-	\renewcommand{\SkillSeven}{1}
-	\renewcommand{\aSkillSeven}{\LaTeX}
-	\renewcommand{\bSkillSeven}{3}
-	
 	%% Change soft skills for this position, with a 4:6 column ratio max total of ca. 30 char per line 
 	\renewcommand{\SoftSkillOne}{1}
 	\renewcommand{\aSoftSkillOne}{33 characters, }
@@ -312,6 +310,7 @@ In sample.pdf you can see the full display of options available in fictionary r√
 	\renewcommand{\SoftSkillSix}{1}
 	\renewcommand{\aSoftSkillSix}{for hirers}
 	
+	%% Just copy and paste what you want to customize from cv.tex and overwrite it here with \renewcommand{}{}
 	\renewcommand{\SocialOne}{1}
 	\renewcommand{\SocialTwo}{9}
 	\renewcommand{\SocialThree}{1}
@@ -448,6 +447,18 @@ In sample.pdf you can see the full display of options available in fictionary r√
 		\renewcommand{\WithFooter}{9}
 	}
 	
+	% reply form settings
+	\renewcommand{\FormBody}{
+		\linefield{respformgreeting}{0.42\textwidth} \hfill ~\par
+		\bigskip
+		\boxfield[11.37cm]{respformpar}{\textwidth}\par
+		\vfill
+		~ \hfill \rightfield{respformclosing}{0.42\textwidth}\par
+		\vspace{2.6cm}
+		\linefield{respformlocation}{0.42\textwidth} \hfill \rightfield{~~~}{0.42\textwidth}\\
+		Location, Date \hfill Signature, Name\\
+	}
+	
 	% End of application settings here %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	%
 	%% cv body start
@@ -484,6 +495,9 @@ In sample.pdf you can see the full display of options available in fictionary r√
 	%
 	% input appendix
 	\input{chap/_appendix}
+	%
+	% input form
+	\input{chap/_form}
 	%
 \end{document}
 ```

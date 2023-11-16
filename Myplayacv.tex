@@ -1,0 +1,178 @@
+% Use "normalphoto" option to remove cropping from the header photo
+% or add document options, e.g. withhyper for hidden urls
+\documentclass[11pt, a4paper, normalphoto, withhyper, ragged2e]{playacv}
+
+% it is recommended to copy and re-use the whole content of this file to compile a new application 
+
+%%% define application colour style
+\definecolor{RuleColor}{HTML}{2A2A84} % changes lines under chapter titles
+\definecolor{SymbolColor}{HTML}{ee7711} % changes symbols and rated skills colour
+\definecolor{HighlightColor}{HTML}{2A2A84} % changes highlights text colour
+
+% default cv data input, copy settings (usually defined with \newcommand) and
+%%% overwrite them with custom settings in this file using \renewcommand{\aSetting}{New Value}
+\input{cv}
+%
+\begin{document}
+	% optional pages (9,9,9 = print only CV)
+	\renewcommand{\WithCoverLetter}{9} % set to 1 to print letter + CV to PDF (can combine with \FormCoverLetter)
+	\renewcommand{\WithAppendix}{9} % set to 1 to print appendix pages to PDF
+	\renewcommand{\WithForm}{9} % set to 1 to print attached response form to PDF/A, works in most browsers
+	
+	% letter and pages options
+	\renewcommand{\OnlyCoverLetter}{9} % set to 1 to print only letter to PDF (can combine with \FormCoverLetter)
+	\renewcommand{\FormCoverLetter}{9}  % set to 1 to print cover letter as interactive form to PDF/A
+
+	%%%%%%% CUSTOM COVER LETTER %%%%%%%
+	%%% recipient information (only needed with cover letter)
+	\renewcommand{\RecipientName}{Joe Hiring} % name (e.g. "Sabrina Hiring")
+	\renewcommand{\Company}{Microsoft Corporation} % company (e.g. "Microsoft Corporation")
+	\renewcommand{\CompanyStreet}{1 Microsoft Way} % company's street address (e.g. "1 Microsoft Way")
+	\renewcommand{\CompanyCity}{Redmond} % company's city (e.g. "Redmond")
+	\renewcommand{\CompanyState}{WA} % company's state prefix (e.g. "WA")
+	\renewcommand{\CompanyZip}{98052} % company's zip code (e.g. "98052")
+	
+	%%% cover letter settings
+	\renewcommand{\HeaderWatermark}{1}
+	
+	\renewcommand{\Subject}{Application for dream job 12345} % company (e.g. "Microsoft Corporation")
+	
+	\renewcommand{\Body}{
+		{\normalsize
+			My cover letter content
+		}
+	}
+	%
+	\input{chap/_letter}
+	%
+	%%%%%%% CUSTOM RÉSUMÉ %%%%%%%	
+    %%% change layout, header, hooter, chapter selection and order
+    
+ 	% e.g. to customise the right cv column inclusion and order of chapters
+	%\renewcommand{\RightColumn}{
+	%	\input{chap/_Experience}
+	%	\input{chap/_Education}
+	%	\input{chap/_Publications}
+	%}
+
+	%%% text under name                                                             
+	\renewcommand{\aHeaderQuote}{My first Résumé with \LaTeX{} PlayaCV}
+	
+	%%% header and footer options
+	\renewcommand{\aHeaderPhoto}{img/qr}
+	\renewcommand{\HeaderWatermark}{9}
+	%\renewcommand{\aFooterPhotoR}{img/sig}
+
+	%
+	\input{chap/_cvHeader}
+	%
+	
+	%%% Chapters content settings
+	
+	%%% chapters selection
+	\renewcommand{\WithPersonalInfo}{1}
+	\renewcommand{\WithSkills}{1}
+	\renewcommand{\WithSoftSkills}{1}
+	\renewcommand{\WithSummary}{1}
+	\renewcommand{\WithHobbies}{1}
+	
+	%%% highlights
+	\renewcommand{\fSkillTwo}{1}
+	\renewcommand{\fSkillFour}{1}
+	\renewcommand{\fSoftSkillThree}{1}
+	\renewcommand{\fExperienceOne}{3}
+	
+	%%% personal information
+	\renewcommand{\PersonalInfoTwo}{9}
+	\renewcommand{\PersonalInfoSeven}{1}
+
+	%%% skills
+	\renewcommand{\aSkillOne}{Advertised skills}
+	\renewcommand{\bSkillOne}{4.5}
+	%\renewcommand{\aSkillTwo}{New skill name #2, b=rating}
+	%\renewcommand{\bSkillTwo}{4.5}
+	
+	%%% experience
+	\renewcommand{\eExperienceTwo}{}
+	\renewcommand{\eExperienceThree}{}
+	\renewcommand{\eExperienceSix}{}
+	
+	%%% example when using \cvItems, notice you need to include all brackets
+	%	\renewcommand{\eExperienceItemsOne}{\cvitems[\fExperienceOne] % highlight option 1..5 or 9
+		%	{} % items {1}..{5}
+		%	{}{}{}{}}
+	%{backup item}
+	
+	%%% languages
+	\renewcommand{\aLanguageOne}{I speak}
+	
+	%%% soft skills and hobbies support a maximum of fifteen elements
+	\renewcommand{\HobbyFive}{9} % set to 1 to show fifth hobby element
+	
+	%%%%%%% CUSTOM ANNEXES %%%%%%%
+	\renewcommand{\AppendixOne}{1} % set to 1 to include Appendix chapter #1
+	\renewcommand{\aAppendixOne}{Appendix 1 (one page pdf/image)} % appendix TITLE
+	\renewcommand{\bAppendixOne}{appendix/snow} % appendix file (image, pdf)
+	\renewcommand{\cAppendixOne}{0.96} % scaling factor
+	\renewcommand{\dAppendixOne}{1} % if greater then 1, prints all pages from 1 to \dAppendixOne
+	
+	%%%%%%% CUSTOM FORM %%%%%%%
+	%%% Form settings, defaults to a reply letter form
+	\renewcommand{\FormBody}{
+		\linefield{respformgreeting}{0.42\textwidth} \hfill ~\par
+		\bigskip
+		\boxfield[11.37cm]{respformpar}{\textwidth}\par
+		\vfill
+		~ \hfill \rightfield{respformclosing}{0.42\textwidth}\par
+		\vspace{2.6cm}
+		\linefield{respformlocation}{0.42\textwidth} \hfill \rightfield{~~~}{0.42\textwidth}\\
+		Location, Date \hfill Signature, Name\\
+	}
+	
+	%%%%%%% CUSTOM GROUPED SETTINGS %%%%%%%
+	%%% The last \renewcommand{\mySetting=1}{New Value} will overwrite the previous settings
+	%%% that is why grouped settings must be defined here at the bottom of the file to make sure 
+	%%% they take effect if set to 1 after \begin{document}, see \OnePager or \PhD in template.tex
+
+%%%%%
+	%
+	\cvsetting[
+	%
+	%% cv body start
+	%
+	% left/right column width ratio, 0.5 = centred
+	\columnratio{\MyColumnRatio}
+	%
+	%
+	% start a 2-column paracol. Both the left and right columns will automatically
+	% break across pages if things get too long.
+	\begin{paracol}{2}
+		%
+		% vertical adjustment left
+		\vspace{\vLeftColumn}
+		%
+		\LeftColumn
+		%
+		% switch to the right column
+		\switchcolumn
+		%
+		% vertical adjustment right
+		\vspace{\vRightColumn} 
+		%
+		\RightColumn
+		%
+	\end{paracol}
+	%% cv body end 
+	%
+	\input{chap/_cvFooter}
+	]{\OnlyCoverLetter}{}
+	
+	% change the appendix page layout here if you need to
+	\newgeometry{left=1cm,right=1.3cm,top=1.5cm,bottom=1.5cm,columnsep=0.3cm}
+	%
+	% input appendix
+	\input{chap/_Appendix}
+	%
+	\input{chap/_form}
+	%
+\end{document}

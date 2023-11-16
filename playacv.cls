@@ -547,15 +547,29 @@
 % thank you Malte Gerken
 \renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt}
 
-% normal form field
+% normal form field with label to the left
 \newcommand{\labeledfield}[2]{
 \renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt}
 	\TextField[width=#2]{#1}
 }
 
+% form field without label
+\newcommand{\formfield}[2]{
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt, width=#2}
+	\TextField[name=#1]{}
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt}
+}
+
 % right aligned form field
 \newcommand{\rightfield}[2]{
 \renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt, align=2,width=#2}
+	\TextField[name=#1]{}
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt}
+}
+
+% center aligned form field
+\newcommand{\centefield}[2]{
+\renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt, align=1,width=#2}
 	\TextField[name=#1]{}
 \renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt}
 }
@@ -716,7 +730,7 @@
 \renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip}
 }
 
-% in line form field (deprecated probably)
+% in line form field (not used currently)
 \newcommand{\fieldinline}[2]{
 \renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, width=#2}\TextField[name=#1]{}
 \renewcommand*{\DefaultOptionsofText}{print,bordercolor={black}, backgroundcolor=white, borderwidth=0pt, height=\baselineskip, charsize=11pt}

@@ -23,7 +23,8 @@
 %% version 2003/12/01 or later.
 %%%%%%%%%%%%%%%
 
-% you might set up this file once with all your default information and settings
+% you might set up this file on first use with all your default information and settings
+%%% custom settings in your.tex (see template.tex example) overwrite the settings first initialised here
 
 % your contact data
 \newcommand{\myName}{Colum Namvitae}
@@ -39,7 +40,7 @@
 \newcommand{\myAddressURL}{https://www.openstreetmap.org/\#map=5/69/42}
 \newcommand{\myDate}{\today}
 
-% change the page layout if you need to
+% initial page layout
 \geometry{left=1.5cm,right=2cm,top=1.5cm,bottom=1.5cm,columnsep=0.3cm}
 
 % change the font if you want to, depending on whether
@@ -86,15 +87,11 @@
 %\renewcommand{\itemmarker}{{\small\textbullet}}
 %\renewcommand{\ratingmarker}{\faStar}
 
-% add text under name (removing it might change the vertical alignment of things), 1 = include, 9 = nein    
-\newcommand{\HeaderQuote}{1} % set to 1 include text under name
-\newcommand{\aHeaderQuote}{PlayaCV \LaTeX{} Template} % change default text under name, e.g. Résumé for Company X, position description, your motto
-\newcommand{\bHeaderQuote}{DarkGrey} % change colour of text under name
+% default document layout settings, 1 = include, 9 = no
 
-% default document settings
+% default header settings
+% if you use optional pages, you can overwrite headers settings before they are input in your.tex with \renewcommand{HeaderSetting}{New Value}
 
-% header settings, 1 = include, 9 = no
-% go to cvHeader.tex or to \makecvheader in playacv.cls for further modifications to the top part of the cv
 \newcommand{\WithHeader}{1}
 \newcommand{\ConfidentialLetter}{9} % <- ifnum = 1
 \newcommand{\ConfidentialHeader}{-- CONFIDENTIAL --} % line appears over recipient name in letter header
@@ -115,21 +112,12 @@
 \newcommand{\dHeaderWatermark}{0.0} % left -/+ right distance from center in cm
 \newcommand{\eHeaderWatermark}{-0.5} % up -/+ down position in cm, useful to adjust address fields vertically
 
-% cover letter header width for left and right minipages (contact data) at the top of the page
-\newcommand{\HeaderWidthL}{0.5}
-\newcommand{\HeaderWidthR}{0.3}
-\newcommand{\cvHeaderInfo}{
-	\personalinfo{%
-	% Not all of these are required!
-	\email{\myMail}
-	\phone{\myPhone}
-	\printinfo{\faEnvelope}{\myAddress}[\myAddressURL]
-	\printinfo{\faLinkedin}{my-name}[https://linkedin.com/in/my-profile-123456]
-	\printinfo{\faPaw}{Hey ho!}[https://example.com/]
-	}
-}
+% add text under name (removing it might change the vertical alignment of things), 1 = include, 9 = nein    
+\newcommand{\HeaderQuote}{1} % set to 1 include text under name
+\newcommand{\aHeaderQuote}{PlayaCV \LaTeX{} Template} % change default text under name, e.g. Résumé for Company X, position description, your motto
+\newcommand{\bHeaderQuote}{DarkGrey} % change colour of text under name
 
-% footer settings
+% footer default settings
 \newcommand{\WithFooter}{1}
 
 % you can add photos with text under it on the left and/or right
@@ -155,9 +143,26 @@
 \newcommand{\dFooterWatermark}{0.0} % left -/+ right distance from center
 \newcommand{\eFooterWatermark}{0.0} % up -/+ down shift
 
-% column settings
+% pubs.bib contains your publications
+% \addbibresource{bib/pubs.bib}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want to use an author-year reference style like APA(6)
+%% for your publication list
+% \input{bib/pubs-authoryear}
+
+%% Use (and optionally edit if necessary) this .tex if you
+%% want an originally numerical reference style like IEEE
+%% for your publication list
+% \input{bib/pubs-num}
+
+% cv columns default settings
 % set the left/right column width ratio to 37:63.
 \newcommand{\MyColumnRatio}{0.4}
+
+% vertical alignment of the start of the left and right columns, sometimes the Title are misaligned
+\newcommand{\vLeftColumn}{0.00cm}
+\newcommand{\vRightColumn}{0.00cm}
 
 %%% choose default order of chapters to be displayed on the left side, from top to bottom
 %%% left column
@@ -196,37 +201,63 @@
 	%\input{chap/mychapter}
 }
 
-% pubs.bib contains your publications
-% \addbibresource{bib/pubs.bib}
-
-%% Use (and optionally edit if necessary) this .tex if you
-%% want to use an author-year reference style like APA(6)
-%% for your publication list
-% \input{bib/pubs-authoryear}
-
-%% Use (and optionally edit if necessary) this .tex if you
-%% want an originally numerical reference style like IEEE
-%% for your publication list
-% \input{bib/pubs-num}
-
-% your default chapters and cv content settings %%%%%%%%%%%%%%%%%%%%%%%%%%% % CONTENT SETTINGS %
-%
-% set visibility and values. Uses 
-% \newcommand{\WithCvContent}{1} here, to include items for anywhere or set default values,
-% e.g. \cvsetting{\WithCvContent}{\CvThings} would include \CvThings somewhere
-%
-%%%%%%%%%%%%%%%%%%%%% these {setting}{values} will be used as standard values when compiling %%%
-
-% letter default settings
+% cover letter default settings
 \newcommand{\OnlyCoverLetter}{9} % set to 1 to print only letter to PDF
 \newcommand{\WithCoverLetter}{9} % set to 1 to print letter + CV to PDF
 \newcommand{\WithBody}{1}
 \newcommand{\Body}{Cover letter body}
 \newcommand{\FormCoverLetter}{9}
 
-% form settings
-\newcommand{\WithForm}{9}
-\newcommand{\OnlyForm}{9} % to do
+% cover letter header width for left and right minipages (contact data) at the top of the page
+\newcommand{\HeaderWidthL}{0.5}
+\newcommand{\HeaderWidthR}{0.3}
+\newcommand{\cvHeaderInfo}{
+	\personalinfo{%
+		\email{\myMail}
+		\phone{\myPhone}
+		% create your own header info
+		\printinfo{\faEnvelope}{\myAddress}[\myAddressURL]
+		\printinfo{\faLinkedin}{my-name}[https://linkedin.com/in/my-profile-123456]
+		%\printinfo{\faPaw}{Hey ho!}[https://example.com/]
+	}
+}
+
+% appendix default settings e.g. for adding additional documents to your application
+\newcommand{\WithAppendix}{9} % appendixes are setup without header and footer by default
+
+\newcommand{\AppendixOne}{1} % set to 1 to include Appendix chapter #1
+\newcommand{\aAppendixOne}{Appendix 1 (one page pdf/image)} % appendix TITLE
+\newcommand{\bAppendixOne}{appendix/snow} % appendix file (image, pdf)
+\newcommand{\cAppendixOne}{0.96} % scaling factor
+\newcommand{\dAppendixOne}{1} % if greater then 1, prints all pages from 1 to \dAppendixOne
+
+\newcommand{\AppendixTwo}{1} % appendix #2
+\newcommand{\aAppendixTwo}{Appendix 2 (more pages pdf file)}
+\newcommand{\bAppendixTwo}{appendix/sample}
+\newcommand{\cAppendixTwo}{0.95}
+\newcommand{\dAppendixTwo}{3} % print the first 3 pages
+
+\newcommand{\AppendixThree}{9} % appendix #3
+\newcommand{\aAppendixThree}{Appendix 3}
+\newcommand{\bAppendixThree}{appendix/..}
+\newcommand{\cAppendixThree}{0.8}
+\newcommand{\dAppendixThree}{3}
+
+\newcommand{\AppendixFour}{9} % appendix #4
+\newcommand{\aAppendixFour}{Appendix 4}
+\newcommand{\bAppendixFour}{appendix/..}
+\newcommand{\cAppendixFour}{0.8}
+\newcommand{\dAppendixFour}{1}
+
+\newcommand{\AppendixFive}{9} % appendix #5
+\newcommand{\aAppendixFive}{Appendix 5}
+\newcommand{\bAppendixFive}{appendix/..}
+\newcommand{\cAppendixFive}{.5}
+\newcommand{\dAppendixFive}{1}
+
+% form default settings, renders blank business letter form
+\newcommand{\WithForm}{9} % form letter is setup with forced header and footer design, change in _chap if needed
+%\newcommand{\OnlyForm}{9} % to do
 \newcommand{\FormSubject}{Reply to ``\Subject`` (\myDate)}
 \newcommand{\FormBody}{
 	\linefield{formgreeting}{0.42\textwidth} \hfill ~\par
@@ -236,51 +267,19 @@
 	~ \hfill \rightfield{~~}{0.42\textwidth}\par
 }
 
-% abstract settings
+%%%%%%% LONG LIST OF DEFAULT SETTINGS IN (MOSTLY) ALPHABETICAL ODER %%%%%%%
+% Set default visibility and values for your CV content below. Uses 
+% \newcommand{\WithCvContent}{1} here, to include items for anywhere or set default values,
+% e.g. \cvsetting{\WithCvContent}{\CvThings} would include \CvThings somewhere
+%%% you can reuse any setting with \renewcommand{\WithCvContent}{9}in your.tex to overwrite as needed
+
+% abstract default settings
 \newcommand{\WithAbstract}{9}
 \newcommand{\Abstract}{Abstract}
 
 \newcommand{\aAbstract}{A short abstract in the beginning, if you wish}
 \newcommand{\bAbstract}{\large}
 \newcommand{\cAbstract}{accent}
-
-% appendix settings e.g. for adding additional documents to your application
-\newcommand{\WithAppendix}{9}
-
-\newcommand{\AppendixOne}{1} % set to 1 to include Appendix chapter #1
-\newcommand{\aAppendixOne}{Appendix 1 (one page pdf/image)} % appendix TITLE
-\newcommand{\bAppendixOne}{appendix/snow} % appendix file (image, pdf)
-\newcommand{\cAppendixOne}{0.96} % scaling factor
-\newcommand{\dAppendixOne}{1} % if greater then 1, prints all pages from 1 to \dAppendixOne
-
-
-\newcommand{\AppendixTwo}{1} % appendix #2
-\newcommand{\aAppendixTwo}{Appendix 2 (more pages pdf file)}
-\newcommand{\bAppendixTwo}{appendix/sample}
-\newcommand{\cAppendixTwo}{0.95}
-\newcommand{\dAppendixTwo}{3} % print the first 3 pages
-
-
-\newcommand{\AppendixThree}{9} % appendix #3
-\newcommand{\aAppendixThree}{Appendix 3}
-\newcommand{\bAppendixThree}{appendix/..}
-\newcommand{\cAppendixThree}{0.8}
-\newcommand{\dAppendixThree}{3}
-
-
-\newcommand{\AppendixFour}{9} % appendix #4
-\newcommand{\aAppendixFour}{Appendix 4}
-\newcommand{\bAppendixFour}{appendix/..}
-\newcommand{\cAppendixFour}{0.8}
-\newcommand{\dAppendixFour}{1}
-
-
-\newcommand{\AppendixFive}{9} % appendix #5
-\newcommand{\aAppendixFive}{Appendix 5}
-\newcommand{\bAppendixFive}{appendix/..}
-\newcommand{\cAppendixFive}{.5}
-\newcommand{\dAppendixFive}{1}
-
 
 % awards chapter settings
 \newcommand{\WithAwards}{9} % set to 1 to include awards chapter
@@ -451,7 +450,7 @@
 }
 \newcommand{\eExperienceItemOne}{1} % set to 1 to show Items
 \newcommand{\eExperienceOne}{Uses only first line} % text (above items)
-\newcommand{\fExperienceOne}{3} % set to 1..5 to highlight experience or 9
+\newcommand{\fExperienceOne}{9} % set to 1..5 to highlight experience or 9
 \newcommand{\eExperienceItemsOne}{\cvitems[\fExperienceOne] % highlight option 1..5 or 9
 	{My main responsibilities} % items {1}..{5}
 	{Impressive (highlighted with fExperienceOne = 3)}
@@ -469,7 +468,7 @@
 }
 \newcommand{\eExperienceItemTwo}{1}
 \newcommand{\eExperienceTwo}{Title first line, subtitle and highlight} % own text/items
-\newcommand{\fExperienceTwo}{2} % set to 1..5 to highlight experience
+\newcommand{\fExperienceTwo}{9} % set to 1..5 to highlight experience
 \newcommand{\eExperienceItemsTwo}{\cvitems[\fExperienceTwo]{Masterfully done this}{Also took care of that}{}{}{}}
 
 \newcommand{\ExperienceThree}{1} % experience #3
@@ -560,14 +559,14 @@
 \newcommand{\HobbyThree}{1}
 \newcommand{\aHobbyThree}{Reading}
 
-\newcommand{\HobbyFour}{9}
+\newcommand{\HobbyFour}{1}
 \newcommand{\aHobbyFour}{Cooking}
 
-\newcommand{\HobbyFive}{1}
-\newcommand{\aHobbyFive}{Woodworking}
+\newcommand{\HobbyFive}{9}
+\newcommand{\aHobbyFive}{\LaTeX}
 
-\newcommand{\HobbySix}{9}
-\newcommand{\aHobbySix}{Working \faHeart You}
+\newcommand{\HobbySix}{1}
+\newcommand{\aHobbySix}{Symbols \faHeart}
 
 \newcommand{\HobbySeven}{9}
 \newcommand{\aHobbySeven}{}
@@ -593,7 +592,7 @@
 \newcommand{\HobbyFourteen}{9}
 \newcommand{\aHobbyFourteen}{}
 
-\newcommand{\HobbyFifteen}{1}
+\newcommand{\HobbyFifteen}{9}
 \newcommand{\aHobbyFifteen}{Cats \href{https://github.com/Pleiadas/playacv/}{\faGithub}}
 
 % languages chapter settings
@@ -970,7 +969,7 @@
 %\newcommand{\bSoftSkillFour}{5}
 \newcommand{\fSoftSkillFour}{9}
 
-\newcommand{\SoftSkillFive}{1} % soft skill #5
+\newcommand{\SoftSkillFive}{9} % soft skill #5
 \newcommand{\aSoftSkillFive}{aSoftSkill}
 %\newcommand{\bSoftSkillFive}{5}
 \newcommand{\fSoftSkillFive}{9}
